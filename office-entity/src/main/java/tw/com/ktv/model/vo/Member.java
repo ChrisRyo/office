@@ -19,32 +19,32 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "member")
-@NamedQuery(name="Member.findAll", query="SELECT m FROM Member m")
+@NamedQuery(name = "Member.findAll", query = "SELECT m FROM Member m")
 public class Member extends BaseEntity implements Serializable {
-	private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-	@Id
-	private Integer uid;
-	
-	@Column(name="user_name")
-	private String userName;
+  @Id
+  private Integer uid;
 
-	private String addr;
+  @Column(name = "user_name")
+  private String userName;
 
-	private String email;
+  private String addr;
 
-	@Column(name="login_ip")
-	private String loginIp;
+  private String email;
 
-	@Column(name="login_time")
-	private Timestamp loginTime;
+  @Column(name = "login_ip")
+  private String loginIp;
 
-	private String name;
+  @Column(name = "login_time")
+  private Timestamp loginTime;
 
-	private String phone;
+  private String name;
 
-	private String pwd;
+  private String phone;
 
-	private Short status;
+  private String pwd;
+
+  private Short status;
 
 }

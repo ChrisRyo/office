@@ -16,8 +16,8 @@ public class User {
 
   @Delegate
   private Member member;
-  
-  public User () {
+
+  public User() {
     this.member = new Member();
   }
 }

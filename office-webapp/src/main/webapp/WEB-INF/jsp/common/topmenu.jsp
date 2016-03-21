@@ -1,5 +1,6 @@
   <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     <!--
   BODY TAG OPTIONS:
   =================
@@ -215,15 +216,7 @@
           <ul class="sidebar-menu">
             <li class="header">作業功能選單</li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-            <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
-            <li class="treeview">
-              <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span> <i class="fa fa-angle-left pull-right"></i></a>
-              <ul class="treeview-menu">
-                <li><a href="#">Link in level 2</a></li>
-                <li><a href="#">Link in level 2</a></li>
-              </ul>
-            </li>
+            <c:out value="${it.menuHtml}" escapeXml="false"/>
           </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->
