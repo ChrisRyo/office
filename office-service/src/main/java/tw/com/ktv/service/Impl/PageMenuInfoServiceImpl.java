@@ -1,8 +1,6 @@
 package tw.com.ktv.service.Impl;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.TreeMap;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -28,7 +26,8 @@ public class PageMenuInfoServiceImpl implements PageMenuInfoService {
    * @return
    * @throws Exception
    */
-  public String getPageMenuInfoHtml(Integer uid) throws Exception {
+  @SuppressWarnings("unchecked")
+  public List<PageMenuInfo> getPageMenuInfo(Integer uid) throws Exception {
 
     EntityManager em = pageMenuInfoDao.getEntityManager();
 
@@ -36,57 +35,6 @@ public class PageMenuInfoServiceImpl implements PageMenuInfoService {
         em.createQuery(PropertiesSqlUtils.getJpql(JpqlTitle.LOGIN_PAGEPERMISSION.getTitle()))
             .setParameter(1, uid);
 
-    @SuppressWarnings("unchecked")
-    List<PageMenuInfo> list = (List<PageMenuInfo>) pageMenuInfoDao.queryByJpql(query);
-
-    TreeMap<Integer, PageMenuInfo> parent = new TreeMap<Integer, PageMenuInfo>();
-    TreeMap<Integer, List<PageMenuInfo>> child = new TreeMap<Integer, List<PageMenuInfo>>();
-
-    // 分類
-    for (PageMenuInfo info : list) {
-
-      int parentId = info.getParentId();
-      int urlId = info.getUrlId();
-
-      if (parentId == 0) {
-        parent.put(urlId, info);
-      } else {
-        if (!child.containsKey(parentId)) {
-          child.put(parentId, new ArrayList<PageMenuInfo>());
-        }
-        child.get(parentId).add(info);
-      }
-    }
-
-    // add html
-    StringBuffer sb = new StringBuffer();
-
-    for (Integer key : parent.keySet()) {
-      PageMenuInfo parentinfo = parent.get(key);
-
-      sb.append("<li class='treeview'>");
-      sb.append("<a href='#'>");
-      sb.append("<i class='fa " + parentinfo.getIcons() + "'></i>");
-      sb.append("<span>");
-      sb.append(parentinfo.getName());
-      sb.append("</span>");
-      sb.append("<i class='fa fa-angle-left pull-right'></i></a>");
-
-      List<PageMenuInfo> childList = child.get(key);
-      sb.append("<ul class='treeview-menu' style='display: none;'>");
-
-      for (PageMenuInfo childInfo : childList) {
-        sb.append("<li>");
-        sb.append("<a href='#" + childInfo.getUrl() + "'>");
-        sb.append("<i class='fa " + childInfo.getIcons() + "'></i>");
-        sb.append(childInfo.getName());
-        sb.append("</a>");
-        sb.append("</li>");
-      }
-
-      sb.append("</ul></li>");
-    }
-
-    return sb.toString();
+    return (List<PageMenuInfo>) pageMenuInfoDao.queryByJpql(query);
   }
 }
