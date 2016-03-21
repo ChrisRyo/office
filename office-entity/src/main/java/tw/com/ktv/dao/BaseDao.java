@@ -2,6 +2,9 @@ package tw.com.ktv.dao;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+
 /**
  * BaseDaoImpl
  * 
@@ -9,6 +12,16 @@ import java.util.List;
  *
  */
 public interface BaseDao {
+  
+  public EntityManager getEntityManager();
+
+  /**
+   * 
+   * @param Query
+   * @return
+   * @throws Exception
+   */
+  public List<?> queryByJpql(Query query) throws Exception;
 
   /**
    * 
@@ -16,7 +29,7 @@ public interface BaseDao {
    * @return
    * @throws Exception
    */
-  public Object queryBySql(String sql) throws Exception;
+  public List<?> queryBySql(String sql) throws Exception;
 
   /**
    * 取得所有資料
@@ -57,8 +70,7 @@ public interface BaseDao {
    * @return
    * @throws Exception
    */
-  public List<?> queryByEntity(Object entity, boolean isLike, int index, int size)
-      throws Exception;
+  public List<?> queryByEntity(Object entity, boolean isLike, int index, int size) throws Exception;
 
   /**
    * 新增 by entity

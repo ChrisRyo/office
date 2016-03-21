@@ -8,7 +8,6 @@ package tw.com.ktv.dao;
  * @author chrisryo
  *
  */
-public interface MemberDao extends BaseDao{
-
+public interface MemberDao extends BaseDao {
 
 }

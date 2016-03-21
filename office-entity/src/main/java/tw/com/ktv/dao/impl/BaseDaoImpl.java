@@ -31,20 +31,32 @@ public abstract class BaseDaoImpl implements BaseDao {
     em = EntityManagerHelper.getEntityManager();
   }
 
+  public EntityManager getEntityManager() {
+    return em;
+  }
+
+  /**
+   * 
+   * @param Query
+   * @return
+   * @throws Exception
+   */
+  public List<?> queryByJpql(Query query) throws Exception {
+    return query.setMaxResults(MAX_COUNT).getResultList();
+  }
+
   /**
    * 
    * @param sql
    * @return
    * @throws Exception
    */
-  public Object queryBySql(String sql) throws Exception {
-    EntityManager em = EntityManagerHelper.getEntityManager();
-
+  public List<?> queryBySql(String sql) throws Exception {
     Query query = em.createQuery(sql).setMaxResults(MAX_COUNT);
     return query.getResultList();
   }
 
-  
+
   /**
    * 取得所有資料
    * 
@@ -68,7 +80,7 @@ public abstract class BaseDaoImpl implements BaseDao {
    * @throws Exception
    */
   public List<?> queryByEntity(Object entity, boolean isLike) throws Exception {
-    
+
     List<?> list = null;
     String sql = EntityUtils.getQueryEntitySql(entity, isLike);
 
@@ -90,7 +102,6 @@ public abstract class BaseDaoImpl implements BaseDao {
    * @throws Exception
    */
   public int queryCountBySql(Object entity, boolean isLike) throws Exception {
-    EntityManager em = EntityManagerHelper.getEntityManager();
 
     String sql = EntityUtils.getQueryCountSql(entity, isLike);
 
@@ -109,8 +120,9 @@ public abstract class BaseDaoImpl implements BaseDao {
    * @return
    * @throws Exception
    */
-  public List<?> queryByEntity(Object entity, boolean isLike, int index, int size) throws Exception {
-    EntityManager em = EntityManagerHelper.getEntityManager();
+  public List<?> queryByEntity(Object entity, boolean isLike, int index, int size)
+      throws Exception {
+
     List<?> list = null;
     String sql = EntityUtils.getQueryEntitySql(entity, isLike);
 
@@ -130,7 +142,7 @@ public abstract class BaseDaoImpl implements BaseDao {
    * @throws Exception
    */
   public void insertByEntity(Object entity) throws Exception {
-    EntityManager em = EntityManagerHelper.getEntityManager();
+
     EntityTransaction transaction = em.getTransaction();
     try {
       transaction.begin();
@@ -150,7 +162,7 @@ public abstract class BaseDaoImpl implements BaseDao {
    * @throws Exception
    */
   public void updateByEntity(Object entity) throws Exception {
-    EntityManager em = EntityManagerHelper.getEntityManager();
+
     EntityTransaction transaction = em.getTransaction();
     try {
       transaction.begin();
@@ -171,7 +183,7 @@ public abstract class BaseDaoImpl implements BaseDao {
    * @throws Exception
    */
   public void deleteByEntity(Object entity) throws Exception {
-    EntityManager em = EntityManagerHelper.getEntityManager();
+
     EntityTransaction transaction = em.getTransaction();
     try {
       transaction.begin();
