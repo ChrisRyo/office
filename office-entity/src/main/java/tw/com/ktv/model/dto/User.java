@@ -13,6 +13,8 @@ import tw.com.ktv.model.vo.Member;
 public class User {
 
   public final static String USER_SESSION = "userInfo";
+  
+  private String menuHtml;
 
   @Delegate
   private Member member;

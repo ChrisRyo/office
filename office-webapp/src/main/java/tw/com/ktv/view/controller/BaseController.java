@@ -8,6 +8,9 @@ import java.util.TreeMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.Context;
 
+import org.apache.commons.lang.StringUtils;
+
+import tw.com.ktv.model.dto.User;
 import tw.com.ktv.model.vo.PageMenuInfo;
 import tw.com.ktv.service.PageMenuInfoService;
 import tw.com.ktv.service.Impl.PageMenuInfoServiceImpl;
@@ -19,18 +22,14 @@ public class BaseController {
   HttpServletRequest request;
 
   protected HashMap<String, Object> getModelAndView() throws Exception {
-   
-    PageMenuInfoService service = new PageMenuInfoServiceImpl();
-
-    List<PageMenuInfo> pageMenuInfoList = service.getPageMenuInfo(UserUtils.getUser().getUid());
 
     HashMap<String, Object> model = new HashMap<String, Object>();
     model.put("pathTitle", request.getContextPath());
-    model.put("menuHtml", this.getPageMenuInfoHtml(pageMenuInfoList));
-    
+    model.put("menuHtml", this.getPageMenuInfoHtml());
+
     return model;
   }
-  
+
   /**
    * 取得用戶選單
    * 
@@ -38,17 +37,24 @@ public class BaseController {
    * @return
    * @throws Exception
    */
-  private String getPageMenuInfoHtml(List<PageMenuInfo> list) throws Exception {
-    
-    String path =
-        request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-            + request.getContextPath();
+  protected String getPageMenuInfoHtml() throws Exception {
+
+    if (StringUtils.isNotEmpty(UserUtils.getUser().getMenuHtml())) {
+      return UserUtils.getUser().getMenuHtml();
+    }
+
+    PageMenuInfoService service = new PageMenuInfoServiceImpl();
+
+    List<PageMenuInfo> pageMenuInfoList = service.getPageMenuInfo(UserUtils.getUser().getUid());
+
+    String path = request.getScheme() + "://" + request.getServerName() + ":"
+        + request.getServerPort() + request.getContextPath();
 
     TreeMap<Integer, PageMenuInfo> parent = new TreeMap<Integer, PageMenuInfo>();
     TreeMap<Integer, List<PageMenuInfo>> child = new TreeMap<Integer, List<PageMenuInfo>>();
 
     // 分類
-    for (PageMenuInfo info : list) {
+    for (PageMenuInfo info : pageMenuInfoList) {
 
       int parentId = info.getParentId();
       int urlId = info.getUrlId();
@@ -65,7 +71,12 @@ public class BaseController {
 
     // add html
     StringBuffer sb = new StringBuffer();
-
+    sb.append("<li class='active'>");
+    sb.append("<a href='" + path + "/index'");
+    sb.append("<i class='fa fa-home'></i>");
+    sb.append("<span>   首頁</span>");
+    sb.append("</a></li>");
+    
     for (Integer key : parent.keySet()) {
       PageMenuInfo parentinfo = parent.get(key);
 
@@ -82,7 +93,7 @@ public class BaseController {
 
       for (PageMenuInfo childInfo : childList) {
         sb.append("<li>");
-        sb.append("<a href='"+path + childInfo.getUrl() +"'");
+        sb.append("<a href='" + path + childInfo.getUrl() + "'");
         sb.append("<i class='fa " + childInfo.getIcons() + "'></i>");
         sb.append(childInfo.getName());
         sb.append("</a>");
@@ -91,7 +102,14 @@ public class BaseController {
 
       sb.append("</ul></li>");
     }
+    
+    String menuHtml = sb.toString();
+    
+    // 回寫
+    User user = UserUtils.getUser();
+    user.setMenuHtml(menuHtml);
+    request.getSession().setAttribute(User.USER_SESSION, user);
 
-    return sb.toString();
+    return menuHtml;
   }
 }

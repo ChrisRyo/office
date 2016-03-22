@@ -27,7 +27,7 @@ import tw.com.ktv.view.message.ReturnMessage;
  *
  */
 @Path("/login")
-public class LoginController {
+public class LoginController extends BaseController {
 
   @Context
   HttpServletRequest request;
