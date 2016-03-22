@@ -1,5 +1,7 @@
 package tw.com.ktv.service;
 
+import java.util.List;
+
 import tw.com.ktv.model.vo.Member;
 
 
@@ -7,12 +9,26 @@ public interface MemberService {
 
   /**
    * 檢查帳號密碼
+   * 
    * @param username
    * @param pwd
    * @return
-   * @throws Exception 
+   * @throws Exception
    */
   public Member chkLogin(String userName, String pwd) throws Exception;
+
+  /**
+   * 取得用戶資料
+   * 
+   * @param member
+   * @param isLike
+   * @param index
+   * @param size
+   * @return
+   * @throws Exception
+   */
+  public List<Member> getMemberList(Member member, boolean isLike, Integer index, Integer size)
+      throws Exception;
 
   // 新增帳號
 

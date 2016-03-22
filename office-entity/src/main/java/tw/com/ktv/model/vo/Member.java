@@ -28,23 +28,22 @@ public class Member extends BaseEntity implements Serializable {
 
   @Column(name = "user_name")
   private String userName;
+  
+  private String pwd;
+  
+  private String name;
+  
+  private String email;
+  
+  private String phone;
 
   private String addr;
 
-  private String email;
+  private Short status;
 
   @Column(name = "login_ip")
   private String loginIp;
 
   @Column(name = "login_time")
   private Timestamp loginTime;
-
-  private String name;
-
-  private String phone;
-
-  private String pwd;
-
-  private Short status;
-
 }

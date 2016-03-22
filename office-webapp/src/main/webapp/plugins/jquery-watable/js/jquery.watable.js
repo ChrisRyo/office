@@ -807,7 +807,7 @@
                 type: priv.options.urlPost ? 'POST' : 'GET',
                 dataType: 'json',
                 contentType: "application/json; charset=utf-8",
-                data: JSON.stringify(postData),
+                data: postData,
                 async: true,
                 success: function (json) { // 2016-03-12
                     priv.log('request finished in {0}ms.'.f(new priv.ext.XDate() - start));

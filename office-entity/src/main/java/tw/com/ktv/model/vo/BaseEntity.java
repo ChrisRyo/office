@@ -7,12 +7,14 @@ import javax.persistence.Column;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 
+import lombok.Data;
 import tw.com.ktv.util.UserUtils;
 
 /**
  * The persistent class for the expenses database table.
  * 
  */
+@Data
 public abstract class BaseEntity {
 
   @Column(name = "creat_time")
@@ -28,7 +30,7 @@ public abstract class BaseEntity {
   protected Integer updateUid;
 
   @PrePersist
-  protected void onCreate() {
+  public void onCreate() {
     if (creatTime == null) {
       creatTime = new Timestamp(new Date().getTime());
     }
@@ -39,7 +41,7 @@ public abstract class BaseEntity {
   }
 
   @PreUpdate
-  protected void onUpdate() {
+  public void onUpdate() {
     updateTime = new Timestamp(new Date().getTime());
     updateUid = UserUtils.getUser().getUid();
   }

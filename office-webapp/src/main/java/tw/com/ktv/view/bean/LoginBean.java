@@ -13,7 +13,7 @@ public class LoginBean {
   public LoginBean() {
     this.member = new Member();
   }
-  
+
   public Member getMember() {
     return this.member;
   }

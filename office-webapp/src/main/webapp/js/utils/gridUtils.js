@@ -8,7 +8,7 @@ var gridUtils = function() {
       return $('#'+grid.id).WATable({
         url: _path + grid.url,      //Url to a webservice if not setting data manually as we do in this example
         urlData: grid.formData(),   //Any data you need to pass to the webservice
-        urlPost: true,              //Use POST httpmethod to webservice. Default is GET.
+        urlPost: false,             //Use POST httpmethod to webservice. Default is GET.
         debug:false,                //Prints some debug info to console
         dataBind: true,             //Auto-updates table when changing data row values. See example below. (Note. You need a column with the 'unique' property)
         pageSize: 10,               //Initial pagesize
