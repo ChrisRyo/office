@@ -3,8 +3,6 @@
 
 <jsp:include page="../common/header.jsp" />
 <!-- 自訂 css (位置要固定)-->
-<!-- GRID -->
-<link rel="stylesheet" href="plugins/jquery-watable/css/watable.css">
 
 <!-- Select2 -->
 <link rel="stylesheet"
@@ -14,9 +12,6 @@
 <link rel="stylesheet"
 	href="plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css">
 
-<!-- dialog -->
-<link rel="stylesheet"
-	href="plugins/bootstrap-dialog/css/bootstrap-dialog.min.css">
 </head>
 <jsp:include page="../common/topmenu.jsp" />
 
@@ -173,8 +168,6 @@
 <jsp:include page="../common/endmenu.jsp" />
 <jsp:include page="../common/footer.jsp" />
 <!-- 自訂 js (位置要固定)-->
-<!-- GRID -->
-<script src="plugins/jquery-watable/js/jquery.watable.js"></script>
 
 <!-- Select2 -->
 <script src="plugins/almsaeed/plugins/select2/select2.full.min.js"></script>
@@ -184,9 +177,6 @@
 <script src="plugins/bootstrap-moment/js/locale/zh-tw.js"></script>
 <script
 	src="plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
-
-<!-- dialog -->
-<script src="plugins/bootstrap-dialog/js/bootstrap-dialog.min.js"></script>
 
 <!-- self -->
 <script type="text/javascript" src="js/expenses/expenses.js"></script>

@@ -12,6 +12,10 @@
 <script src="plugins/jquery-waitMe/js/waitMe.js"></script>
 <!-- Validator -->
 <script src="plugins/bootstrap-validator/js/bootstrapValidator.js"></script>
+<!-- GRID -->
+<script src="plugins/jquery-watable/js/jquery.watable.js"></script>
+<!-- dialog -->
+<script src="plugins/bootstrap-dialog/js/bootstrap-dialog.min.js"></script>
 
 <!-- self -->
 <script src="js/utils/commonUtils.js"></script>

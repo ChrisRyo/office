@@ -11,12 +11,29 @@
 		<!-- Content Header (Page header) -->
 		<section class="content-header">
 			<h1>
-				使用者管理 <small>！！</small>
+				使用者管理
 			</h1>
 			<ol class="breadcrumb">
 				<li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
 				<li class="active">Here</li>
 			</ol>
+		</section>
+		<section class="content">
+			<!-- grid-->
+			<div class="box box-default" id="table1Grid">
+				<div class="box-header with-border">
+					<h3 class="box-title">Member Table</h3>
+					<div class="box-tools pull-right">
+						<button class="btn btn-box-tool" data-widget="collapse">
+							<i class="fa fa-minus"></i>
+						</button>
+					</div>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body">
+					<div id="gridMember" style="width: 100%"></div>
+				</div>
+			</div>
 		</section>
 	</div>
 </div>
@@ -24,5 +41,7 @@
 <jsp:include page="../common/endmenu.jsp" />
 <jsp:include page="../common/footer.jsp" />
 <!-- 自訂 js (位置要固定)-->
+<script type="text/javascript" src="js/member/member.js"></script>
+<script type="text/javascript" src="js/member/member_grid.js"></script>
 </body>
 </html>
