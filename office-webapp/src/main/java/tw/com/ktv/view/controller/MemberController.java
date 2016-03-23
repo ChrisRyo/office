@@ -37,8 +37,8 @@ public class MemberController extends BaseController {
         memberService
             .getMemberList(bean.getMember(), true, bean.getPageIndex(), bean.getPageSize());
 
-    int count = memberService.queryCountBySql(bean.getMember(), true);
+//    int count = memberService.queryCountBySql(bean.getMember(), true);
 
-    return new ReturnMessage(ValidCode.SUCCESS.getCode(), list, count);
+    return new ReturnMessage(ValidCode.SUCCESS.getCode(), list, 0);
   }
 }

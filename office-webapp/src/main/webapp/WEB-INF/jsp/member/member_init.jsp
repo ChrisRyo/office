@@ -10,9 +10,7 @@
 	<div class="content-wrapper">
 		<!-- Content Header (Page header) -->
 		<section class="content-header">
-			<h1>
-				使用者管理
-			</h1>
+			<h1>使用者管理</h1>
 			<ol class="breadcrumb">
 				<li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
 				<li class="active">Here</li>
@@ -31,6 +29,14 @@
 				</div>
 				<!-- /.box-header -->
 				<div class="box-body">
+					<div class="control-group">
+						<input class="btn btn-primary btn-sm" type="button" value="新增"
+							onclick="expenses.openModel(1);" /> <input
+							class="btn btn-warning btn-sm" type="button" value="修改"
+							onclick="expenses.openModel(2);" /> <input
+							class="btn btn-danger btn-sm" type="button" value="刪除"
+							onclick="expensesSubmit.deleteDetail();" />
+					</div>
 					<div id="gridMember" style="width: 100%"></div>
 				</div>
 			</div>

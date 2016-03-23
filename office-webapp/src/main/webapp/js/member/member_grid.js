@@ -62,23 +62,23 @@ var MemberGrid = function() {
       };
     },
 
-    rowClicked: function(data) {
-      var row = data.row;
-      for ( var o in row) {
-        $("#" + _table1 + " [id=" + o + "]").val(row[o]).change();
-      }
-    },
-
-    sourceFM: function(val, row) {
-      var val = row.source;
-      var name = $('#source option[value=' + val + ']').text();
-      return name == "" ? row.val : name;
-    },
-
-    billStoreFM: function(val, row) {
-      var val = row.billStore;
-      var name = $('#billStore option[value=' + val + ']').text();
-      return name == "" ? row.val : name;
-    },
+//    rowClicked: function(data) {
+//      var row = data.row;
+//      for ( var o in row) {
+//        $("#" + _table1 + " [id=" + o + "]").val(row[o]).change();
+//      }
+//    },
+//
+//    sourceFM: function(val, row) {
+//      var val = row.source;
+//      var name = $('#source option[value=' + val + ']').text();
+//      return name == "" ? row.val : name;
+//    },
+//
+//    billStoreFM: function(val, row) {
+//      var val = row.billStore;
+//      var name = $('#billStore option[value=' + val + ']').text();
+//      return name == "" ? row.val : name;
+//    },
   }
 }();
