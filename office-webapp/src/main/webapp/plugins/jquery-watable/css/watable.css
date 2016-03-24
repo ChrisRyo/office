@@ -14,8 +14,6 @@
 .watable th,
 .watable td {
   border-width: 1px !important;
-  background-color:BLACK;
-  color:White; 
 }
 
 .watable .glyphicon {

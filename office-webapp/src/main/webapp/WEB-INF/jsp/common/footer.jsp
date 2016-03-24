@@ -16,6 +16,8 @@
 <script src="plugins/jquery-watable/js/jquery.watable.js"></script>
 <!-- dialog -->
 <script src="plugins/bootstrap-dialog/js/bootstrap-dialog.min.js"></script>
+<!-- dust -->
+<script src="plugins/dust/js/dust-full.js"></script>
 
 <!-- self -->
 <script src="js/utils/commonUtils.js"></script>

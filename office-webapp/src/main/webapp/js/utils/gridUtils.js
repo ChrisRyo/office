@@ -1,11 +1,12 @@
 /**
  * chrisryo
  */
-var gridUtils = function() {
+ var gridUtils = function() {
   return {
 
     initGrid: function(grid) {
-      return $('#'+grid.id).WATable({
+
+      var waTable = $('#'+grid.id).WATable({
         url: _path + grid.url,      //Url to a webservice if not setting data manually as we do in this example
         urlData: grid.formData(),   //Any data you need to pass to the webservice
         urlPost: false,             //Use POST httpmethod to webservice. Default is GET.
@@ -19,7 +20,7 @@ var gridUtils = function() {
         sorting: true,              //Enable sorting
         sortEmptyLast:true,         //Empty values will be shown last
         columnPicker: true,         //Show the columnPicker button
-        pageSizes: [2,10,20,30,50],   //Set custom pageSizes. Leave empty array to hide button.
+        pageSizes: [10,20,30,50],   //Set custom pageSizes. Leave empty array to hide button.
         hidePagerOnEmpty: true,     //Removes the pager if data is empty.
         checkboxes: true,           //Make rows checkable. (Note. You need a column with the 'unique' property)
         checkAllToggle:false,        //Show the check-all toggle
@@ -45,6 +46,31 @@ var gridUtils = function() {
         pageChanged: grid.pageChanged,
         pageSizeChanged: grid.pageSizeChanged
       }).data('WATable');  //This step reaches into the html data property to get the actual WATable object. Important if you want a reference to it as we want here.
+
+      this.creatDialog(grid);
+
+      return waTable;
+    },
+
+    creatDialog: function(grid){
+      var i = 0;
+      var coldefs = grid.coldefs();
+      var colArray = new Array();
+      for (var o in coldefs) {
+        coldefs[o].col = o;
+        colArray[i++] = coldefs[o];
+      }
+
+      var dataObj = {"title":grid.title, "formId":"form_" + grid.id, "data":colArray};
+
+      dust.loadSource(dust.compile($("#_dust_tableform").html(),"dustTableform"));
+      dust.render("dustTableform", dataObj, function(err, out) {       
+        $("#_dust_tableform").append(out);
+      });
+    },
+    
+    addFuntion: function(){
+
     },
   }
 }();

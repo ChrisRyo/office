@@ -39,6 +39,6 @@ public class MemberController extends BaseController {
 
 //    int count = memberService.queryCountBySql(bean.getMember(), true);
 
-    return new ReturnMessage(ValidCode.SUCCESS.getCode(), list, 0);
+    return new ReturnMessage(ValidCode.SUCCESS.getCode(), list, 1);
   }
 }

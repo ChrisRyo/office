@@ -40,6 +40,13 @@
 					<div id="gridMember" style="width: 100%"></div>
 				</div>
 			</div>
+			<div class="tabbable">
+				<ul class="nav nav-tabs nav-tabs-lg" id="dust_li_tab">
+					<script type="text/x-template" id="_dust_li_tab">
+						<input value={bankName}>
+					</script>
+				</ul>
+			</div>
 		</section>
 	</div>
 </div>
