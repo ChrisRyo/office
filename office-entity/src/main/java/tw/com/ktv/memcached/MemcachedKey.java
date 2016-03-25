@@ -1,8 +1,12 @@
 package tw.com.ktv.memcached;
 
 public enum MemcachedKey {
-  MEMBER_INFO("member", 0);
-
+  
+  PAGEMENU_INFO("pagemenu_info", 0),
+  
+  MEMBER_INFO("member_info", 3600),
+  MEMBER_FILLTER("member_fillter", 3600);
+  
   private final String keyForStore;
   private final int keepSeconds;
 

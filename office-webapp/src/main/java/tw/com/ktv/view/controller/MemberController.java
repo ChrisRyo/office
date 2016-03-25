@@ -6,6 +6,7 @@ import javax.ws.rs.BeanParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import org.glassfish.jersey.server.mvc.Viewable;
@@ -30,14 +31,11 @@ public class MemberController extends BaseController {
 
   @GET
   @Path("/query")
-  @Produces(MediaType.APPLICATION_JSON)
   public ReturnMessage getMemberList(@BeanParam MemberBean bean) throws Exception {
 
-    List<Member> list =
-        memberService
-            .getMemberList(bean.getMember(), true, bean.getPageIndex(), bean.getPageSize());
+    List<Member> list = memberService.getMemberList(bean.getMember(), true);
 
-//    int count = memberService.queryCountBySql(bean.getMember(), true);
+    // int count = memberService.queryCountBySql(bean.getMember(), true);
 
     return new ReturnMessage(ValidCode.SUCCESS.getCode(), list, 1);
   }

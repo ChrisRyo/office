@@ -41,8 +41,9 @@ public abstract class BaseDaoImpl implements BaseDao {
    * @return
    * @throws Exception
    */
-  public List<?> queryByJpql(Query query) throws Exception {
-    return query.setMaxResults(MAX_COUNT).getResultList();
+  @SuppressWarnings("unchecked")
+  public <P> List<P> queryByJpql(Query query) throws Exception {
+    return (List<P>) query.setMaxResults(MAX_COUNT).getResultList();
   }
 
   /**
@@ -51,9 +52,10 @@ public abstract class BaseDaoImpl implements BaseDao {
    * @return
    * @throws Exception
    */
-  public List<?> queryBySql(String sql) throws Exception {
+  @SuppressWarnings("unchecked")
+  public <P> List<P> queryBySql(String sql) throws Exception {
     Query query = em.createQuery(sql).setMaxResults(MAX_COUNT);
-    return query.getResultList();
+    return (List<P>) query.getResultList();
   }
 
 
@@ -64,11 +66,10 @@ public abstract class BaseDaoImpl implements BaseDao {
    * @return
    * @throws Exception
    */
-  public List<?> queryAll(Class<?> entity) throws Exception {
-    List<?> list = null;
+  @SuppressWarnings("unchecked")
+  public <P> List<P> queryAll(Class<?> entity) throws Exception {
     Query query = em.createNamedQuery(entity.getSimpleName() + ".findAll").setMaxResults(MAX_COUNT);
-    list = (List<?>) query.getResultList();
-    return list;
+    return (List<P>) query.getResultList();
   }
 
   /**
@@ -79,9 +80,9 @@ public abstract class BaseDaoImpl implements BaseDao {
    * @return
    * @throws Exception
    */
-  public List<?> queryByEntity(Object entity, boolean isLike) throws Exception {
+  @SuppressWarnings("unchecked")
+  public <P> List<P> queryByEntity(Object entity, boolean isLike) throws Exception {
 
-    List<?> list = null;
     String sql = EntityUtils.getQueryEntitySql(entity, isLike);
 
     if (sql == null) {
@@ -89,8 +90,8 @@ public abstract class BaseDaoImpl implements BaseDao {
     }
 
     Query query = em.createQuery(sql).setMaxResults(MAX_COUNT);
-    list = (List<?>) query.getResultList();
-    return list;
+
+    return (List<P>) query.getResultList();
   }
 
   /**
@@ -120,10 +121,10 @@ public abstract class BaseDaoImpl implements BaseDao {
    * @return
    * @throws Exception
    */
-  public List<?> queryByEntity(Object entity, boolean isLike, int index, int size)
+  @SuppressWarnings("unchecked")
+  public <P> List<P> queryByEntity(Object entity, boolean isLike, int index, int size)
       throws Exception {
 
-    List<?> list = null;
     String sql = EntityUtils.getQueryEntitySql(entity, isLike);
 
     int begin = ((index - 1) * size);
@@ -131,8 +132,8 @@ public abstract class BaseDaoImpl implements BaseDao {
 
     Query query =
         em.createQuery(sql).setMaxResults(MAX_COUNT).setFirstResult(begin).setMaxResults(length);
-    list = (List<?>) query.getResultList();
-    return list;
+
+    return (List<P>) query.getResultList();
   }
 
   /**

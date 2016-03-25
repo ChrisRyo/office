@@ -8,6 +8,8 @@ import org.glassfish.jersey.server.mvc.jsp.JspMvcFeature;
 
 import tw.com.ktv.jersey.filter.BaseRequestFilter;
 import tw.com.ktv.jersey.filter.BaseResponseFilter;
+import tw.com.ktv.jersey.interceptors.BaseReadInterceptor;
+import tw.com.ktv.jersey.interceptors.BaseWriteInterceptor;
 import tw.com.ktv.jersey.mapper.ConstraintViolationsExceptionMapper;
 import tw.com.ktv.logic.utils.PropertiesSqlUtils;
 
@@ -20,6 +22,9 @@ public class MyApplication extends ResourceConfig {
     // Filter.
     register(BaseRequestFilter.class);
     register(BaseResponseFilter.class);
+    
+    register(BaseReadInterceptor.class);
+    register(BaseWriteInterceptor.class);
 
     // MVC.
     register(MvcFeature.class);

@@ -23,8 +23,8 @@
 		</dependency>
 		<!-- Memcached -->
 		<dependency>
-			<groupId>net.spy</groupId>
-			<artifactId>spymemcached</artifactId>
+			<groupId>com.googlecode.xmemcached</groupId>
+			<artifactId>xmemcached</artifactId>
 			<version>${memcached.version}</version>
 		</dependency>
 	</dependencies>

@@ -1,46 +1,42 @@
 package tw.com.ktv.view.bean;
 
+import java.lang.reflect.InvocationTargetException;
+
 import javax.ws.rs.QueryParam;
 
-import tw.com.ktv.model.dto.PageInfo;
+import org.apache.commons.beanutils.BeanUtils;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import tw.com.ktv.model.vo.Member;
+import tw.com.ktv.view.bean.common.PageInfo;
 
-public class MemberBean extends PageInfo{
-
-  private Member member;
-
-  public MemberBean() {
-    this.member = new Member();
-  }
-  
-  public Member getMember() {
-    return this.member;
-  }
+@Data
+@EqualsAndHashCode(callSuper = false)
+public class MemberBean extends PageInfo {
 
   @QueryParam("userName")
-  public String getUserName() {
-    return member.getUserName();
-  }
-
-  public void setUserName(String userName) {
-    member.setUserName(userName);
-  }
+  private String userName;
 
   @QueryParam("pwd")
-  public String getPwd() {
-    return member.getPwd();
-  }
+  private String pwd;
 
-  public void setPwd(String pwd) {
-    member.setPwd(pwd);
-  }
-  
   @QueryParam("name")
-  public String getName() {
-    return member.getName();
-  }
+  private String name;
 
-  public void setName(String name) {
-    member.setName(name);
+  public Member getMember() {
+    Member member = new Member();
+
+    try {
+      BeanUtils.copyProperties(member, this);
+    } catch (IllegalAccessException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    } catch (InvocationTargetException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+
+    return member;
   }
 }

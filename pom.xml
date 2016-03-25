@@ -13,7 +13,8 @@
 		<hibernate.api.version>1.0.0.Final</hibernate.api.version>
 		<mysql.version>5.1.38</mysql.version>
 		<gson.version>2.6.2</gson.version>
-		<memcached.version>2.12.0</memcached.version>
+		<memcached.version>2.0.0</memcached.version>
+		<logback.version>1.1.6</logback.version>
 		<commons.lang.version>2.6</commons.lang.version>
 		<commons.beanutils.version>1.9.2</commons.beanutils.version>
 	</properties>
@@ -25,6 +26,13 @@
 	</modules>
 
 	<dependencies>
+		<!-- logback -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+
 		<!-- LomBok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>

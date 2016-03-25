@@ -10,6 +10,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 
 /**
@@ -20,6 +21,7 @@ import lombok.Data;
 @Entity
 @Table(name = "member")
 @NamedQuery(name = "Member.findAll", query = "SELECT m FROM Member m")
+@EqualsAndHashCode(callSuper=true)
 public class Member extends BaseEntity implements Serializable {
   private static final long serialVersionUID = 1L;
 

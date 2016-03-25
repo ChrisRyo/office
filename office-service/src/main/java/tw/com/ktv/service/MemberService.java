@@ -22,13 +22,10 @@ public interface MemberService {
    * 
    * @param member
    * @param isLike
-   * @param index
-   * @param size
    * @return
    * @throws Exception
    */
-  public List<Member> getMemberList(Member member, boolean isLike, Integer index, Integer size)
-      throws Exception;
+  public List<Member> getMemberList(Member member, boolean isLike) throws Exception;
 
   // 新增帳號
 

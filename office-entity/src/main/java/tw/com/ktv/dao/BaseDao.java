@@ -21,7 +21,7 @@ public interface BaseDao {
    * @return
    * @throws Exception
    */
-  public List<?> queryByJpql(Query query) throws Exception;
+  public <P> List<P> queryByJpql(Query query) throws Exception;
 
   /**
    * 
@@ -29,7 +29,7 @@ public interface BaseDao {
    * @return
    * @throws Exception
    */
-  public List<?> queryBySql(String sql) throws Exception;
+  public <P> List<P> queryBySql(String sql) throws Exception;
 
   /**
    * 取得所有資料
@@ -38,17 +38,18 @@ public interface BaseDao {
    * @return
    * @throws Exception
    */
-  public List<?> queryAll(Class<?> entity) throws Exception;
+  public <P> List<P> queryAll(Class<?> entity) throws Exception;
 
   /**
    * 查詢 by entity
+   * @param <T>
    * 
    * @param entity
    * @param isLike
    * @return
    * @throws Exception
    */
-  public List<?> queryByEntity(Object entity, boolean isLike) throws Exception;
+  public <P> List<P> queryByEntity(Object entity, boolean isLike) throws Exception;
 
   /**
    * 查詢總筆數 by entity
@@ -70,7 +71,7 @@ public interface BaseDao {
    * @return
    * @throws Exception
    */
-  public List<?> queryByEntity(Object entity, boolean isLike, int index, int size) throws Exception;
+  public <P> List<P> queryByEntity(Object entity, boolean isLike, int index, int size) throws Exception;
 
   /**
    * 新增 by entity
