@@ -17,7 +17,7 @@ public class Memcached {
   private static MemcachedClient getMemcached() {
     try {
       MemcachedClientBuilder builder =
-          new XMemcachedClientBuilder(AddrUtil.getAddresses("10.20.12.216:11211"));
+          new XMemcachedClientBuilder(AddrUtil.getAddresses("127.0.0.1:11211"));
       return builder.build();
     } catch (IOException e) {
       //

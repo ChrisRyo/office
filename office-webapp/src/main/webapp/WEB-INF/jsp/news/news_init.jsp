@@ -6,21 +6,25 @@
 <jsp:include page="../common/topmenu.jsp" />
 
 <!-- Main content -->
-<div id="newsForm">
+<div id="memberForm">
 	<div class="content-wrapper">
 		<!-- Content Header (Page header) -->
 		<section class="content-header">
-			<h1>新聞列表管理</h1>
+			<h1>公告列表管理</h1>
 			<ol class="breadcrumb">
 				<li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
 				<li class="active">Here</li>
 			</ol>
 		</section>
 		<section class="content">
+			<div id="search_gridNews">
+				<jsp:include page="../common/dust_search.jsp" />
+			</div>
+
 			<!-- grid-->
 			<div class="box box-default" id="table1Grid">
 				<div class="box-header with-border">
-					<h3 class="box-title">Member Table</h3>
+					<h3 class="box-title">公告列表</h3>
 					<div class="box-tools pull-right">
 						<button class="btn btn-box-tool" data-widget="collapse">
 							<i class="fa fa-minus"></i>
@@ -37,17 +41,20 @@
 							class="btn btn-danger btn-sm" type="button" value="刪除"
 							onclick="expensesSubmit.deleteDetail();" />
 					</div>
-					<div id="gridMember" style="width: 100%"></div>
+					<div id="gridNews" style="overflow-x:auto;overflow-y:hidden;"></div>
 				</div>
 			</div>
 		</section>
+		<div id="modal_gridNews">
+			<jsp:include page="../common/dust_modal.jsp" />
+		</div>
 	</div>
 </div>
 <!-- /.content -->
 <jsp:include page="../common/endmenu.jsp" />
 <jsp:include page="../common/footer.jsp" />
 <!-- 自訂 js (位置要固定)-->
-<script type="text/javascript" src="js/member/member.js"></script>
-<script type="text/javascript" src="js/member/member_grid.js"></script>
+<script type="text/javascript" src="js/news/news.js"></script>
+<script type="text/javascript" src="js/news/news_grid.js"></script>
 </body>
 </html>

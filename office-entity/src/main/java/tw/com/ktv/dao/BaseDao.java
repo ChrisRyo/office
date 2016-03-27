@@ -5,6 +5,8 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import tw.com.ktv.memcached.MemcachedKey;
+
 /**
  * BaseDaoImpl
  * 
@@ -12,7 +14,7 @@ import javax.persistence.Query;
  *
  */
 public interface BaseDao {
-  
+
   public EntityManager getEntityManager();
 
   /**
@@ -42,6 +44,7 @@ public interface BaseDao {
 
   /**
    * 查詢 by entity
+   * 
    * @param <T>
    * 
    * @param entity
@@ -50,6 +53,19 @@ public interface BaseDao {
    * @throws Exception
    */
   public <P> List<P> queryByEntity(Object entity, boolean isLike) throws Exception;
+
+  /**
+   * 查詢 by entity & MemcachedKey
+   * 
+   * @param entity
+   * @param fiterKey
+   * @param dataKey
+   * @param isLike
+   * @return
+   * @throws Exception
+   */
+  public <P> List<P> queryByEntity(Object entity, MemcachedKey fiterKey, MemcachedKey dataKey,
+      boolean isLike) throws Exception;
 
   /**
    * 查詢總筆數 by entity
@@ -71,7 +87,8 @@ public interface BaseDao {
    * @return
    * @throws Exception
    */
-  public <P> List<P> queryByEntity(Object entity, boolean isLike, int index, int size) throws Exception;
+  public <P> List<P> queryByEntity(Object entity, boolean isLike, int index, int size)
+      throws Exception;
 
   /**
    * 新增 by entity

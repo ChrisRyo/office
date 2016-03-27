@@ -25,11 +25,14 @@
  2016-03-12 
  1. 修改update ajax返回模式. 
  2. 修改format.f傳入參數 format.f(val) -> format(val, row)
- 3. 修改table寬度為100%
+ 3. XX 修改table寬度為100% XX
  4. _data.count -> _data.count
  5. 修改筆數計算
  6. add rownumbers
- 
+ 7. 其他微調
+
+ 2016-03-26
+ 1. add props.noPicker
  */
 (function ($, undefined) {
 
@@ -220,7 +223,7 @@
             if (!_table) {
                 _head = _body = _foot = undefined;
                 // 2016-03-12
-                _table = $('<table class="watable table table-striped table-hover table-bordered table-condensed" style="width: 100%"></table>').appendTo(_cont);
+                _table = $('<table class="watable table table-striped table-hover table-bordered table-condensed"></table>').appendTo(_cont);
             }
 
             //create the header which will later hold both sorting and filtering
@@ -649,7 +652,7 @@
                         var col = colsSorted[i];
                         var props = _data.cols[col];
 
-                        if (props.type != "unique") {
+                        if (props.type != "unique" && !props.noPicker) {
                             var li = $('<li></li>').appendTo(ul);
                             $('<input {0} type="checkbox" title="{1}" value="{1}" >&nbsp;{2}</input>'.f(props.hidden ? '' : 'checked', col, props.friendly || col)).appendTo(li);
                         }

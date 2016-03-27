@@ -1,5 +1,6 @@
 package tw.com.ktv.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -9,7 +10,10 @@ import javax.persistence.Query;
 
 import tw.com.ktv.dao.BaseDao;
 import tw.com.ktv.entityManager.EntityManagerHelper;
+import tw.com.ktv.memcached.Memcached;
+import tw.com.ktv.memcached.MemcachedKey;
 import tw.com.ktv.util.EntityUtils;
+import tw.com.ktv.util.UserUtils;
 
 /**
  * BaseDaoImpl
@@ -92,6 +96,40 @@ public abstract class BaseDaoImpl implements BaseDao {
     Query query = em.createQuery(sql).setMaxResults(MAX_COUNT);
 
     return (List<P>) query.getResultList();
+  }
+  
+  /**
+   * 查詢 by entity & MemcachedKey
+   * 
+   * @param entity
+   * @param fiterKey
+   * @param dataKey
+   * @param isLike
+   * @return
+   * @throws Exception
+   */
+  @SuppressWarnings("unchecked")
+  public <P> List<P> queryByEntity(Object entity, MemcachedKey fiterKey, MemcachedKey dataKey,
+      boolean isLike) throws Exception {
+
+    Integer uid = UserUtils.getUid();
+
+    List<P> list = new ArrayList<P>();
+
+    Object chkObj = Memcached.get(fiterKey, uid);
+
+    if (chkObj != null && entity.equals(chkObj)) {
+      list = Memcached.get(dataKey, uid);
+    } else {
+      String sql = EntityUtils.getQueryEntitySql(entity, isLike);
+      Query query = em.createQuery(sql).setMaxResults(MAX_COUNT);
+      list = query.getResultList();
+
+      Memcached.set(fiterKey, uid, entity);
+      Memcached.set(dataKey, uid, list);
+    }
+
+    return list;
   }
 
   /**

@@ -5,11 +5,11 @@ import javax.ws.rs.Path;
 
 import org.glassfish.jersey.server.mvc.Viewable;
 
-@Path("/index")
-public class IndexController extends BaseController {
+@Path("/home")
+public class HomeController extends BaseController {
 
   @GET
   public Viewable init() throws Exception {
-    return new Viewable("/index/index_init", super.getModelAndView());
+    return new Viewable("/home/home_init", super.getModelAndView());
   }
 }

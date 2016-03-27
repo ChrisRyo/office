@@ -1,21 +1,45 @@
 package tw.com.ktv.model.vo;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
+import javax.persistence.Table;
 
 import lombok.Data;
 import tw.com.ktv.util.UserUtils;
 
+
 /**
- * The persistent class for the expenses database table.
+ * The persistent class for the news database table.
  * 
  */
 @Data
-public abstract class BaseEntity {
+@Entity
+@Table(name = "news")
+@NamedQuery(name = "News.findAll", query = "SELECT n FROM News n")
+public class News implements Serializable {
+  private static final long serialVersionUID = 1L;
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private Integer seq;
+
+  private String contents;
+
+  private Integer status;
+
+  private String title;
+
+  private Integer type;
 
   @Column(name = "creat_time")
   private Timestamp creatTime;
@@ -45,5 +69,6 @@ public abstract class BaseEntity {
     updateTime = new Timestamp(new Date().getTime());
     updateUid = UserUtils.getUser().getUid();
   }
+
 
 }

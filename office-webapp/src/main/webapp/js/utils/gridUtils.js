@@ -4,7 +4,7 @@
  var gridUtils = function() {
   return {
 
-    initGrid: function(grid) {
+    initGrid: function(grid, genModel) {
 
       var waTable = $('#'+grid.id).WATable({
         url: _path + grid.url,      //Url to a webservice if not setting data manually as we do in this example
@@ -47,7 +47,8 @@
         pageSizeChanged: grid.pageSizeChanged
       }).data('WATable');  //This step reaches into the html data property to get the actual WATable object. Important if you want a reference to it as we want here.
 
-      this.creatDialog(grid);
+      if (genModel)
+        this.creatDialog(grid);
 
       return waTable;
     },
@@ -61,11 +62,16 @@
         colArray[i++] = coldefs[o];
       }
 
-      var dataObj = {"title":grid.title, "formId":"form_" + grid.id, "data":colArray};
+      var dataObj = {"title":grid.title, "name":grid.id, "data":colArray};
 
-      dust.loadSource(dust.compile($("#_dust_tableform").html(),"dustTableform"));
-      dust.render("dustTableform", dataObj, function(err, out) {       
-        $("#_dust_tableform").append(out);
+      dust.loadSource(dust.compile($("#_dust_searchform").html(),"dustSearchForm"));
+      dust.render("dustSearchForm", dataObj, function(err, out) {       
+        $("#search_"+grid.id).append(out);
+      });
+
+      dust.loadSource(dust.compile($("#_dust_modalform").html(),"dustModalForm"));
+      dust.render("dustModalForm", dataObj, function(err, out) {       
+        $("#modal_"+grid.id).append(out);
       });
     },
     

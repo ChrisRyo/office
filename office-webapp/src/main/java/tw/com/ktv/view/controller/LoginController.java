@@ -60,7 +60,7 @@ public class LoginController extends BaseController {
 
     request.getSession().setAttribute(User.USER_SESSION, user);
 
-    return new ReturnMessage(ValidCode.SUCCESS.getCode(), request.getContextPath() + "/index");
+    return new ReturnMessage(ValidCode.SUCCESS.getCode(), request.getContextPath() + "/home");
   }
 
 }

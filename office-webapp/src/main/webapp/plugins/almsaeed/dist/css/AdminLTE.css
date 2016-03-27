@@ -1234,7 +1234,7 @@ a:focus {
  * Component: Form
  * ---------------
  */
-.form-control {
+/*.form-control {
   border-radius: 0;
   box-shadow: none;
   border-color: #d2d6de;
@@ -1253,7 +1253,7 @@ a:focus {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-}
+}*/
 .form-group.has-success label {
   color: #00a65a;
 }

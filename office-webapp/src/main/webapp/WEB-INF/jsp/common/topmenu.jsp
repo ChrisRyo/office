@@ -213,7 +213,7 @@
           <!-- /.search form -->
 
           <!-- 側邊選單 -->
-          <ul class="sidebar-menu">
+          <ul id="top-sidebar" class="sidebar-menu">
             <li class="header">作業功能選單</li>
             <!-- Optionally, you can add icons to the links -->
             <c:out value="${it.menuHtml}" escapeXml="false"/>

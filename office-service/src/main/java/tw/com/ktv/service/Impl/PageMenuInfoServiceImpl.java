@@ -94,8 +94,8 @@ public class PageMenuInfoServiceImpl implements PageMenuInfoService {
 
     // add html
     StringBuffer sb = new StringBuffer();
-    sb.append("<li class='active'>");
-    sb.append("<a href='" + path + "/index'");
+    sb.append("<li class='treeview'>");
+    sb.append("<a href='" + path + "/home'");
     sb.append("<i class='fa fa-home'></i>");
     sb.append("<span>   首頁</span>");
     sb.append("</a></li>");
