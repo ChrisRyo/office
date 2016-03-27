@@ -73,10 +73,22 @@
       dust.render("dustModalForm", dataObj, function(err, out) {       
         $("#modal_"+grid.id).append(out);
       });
+
+      // select2
+      this.select2();
+
+      //Date range picker
+      this.daterange();
     },
     
-    addFuntion: function(){
+    select2: function() {
+      $(".select2").select2({
+        width: '100%'
+      });
+    },
 
+    daterange: function() {
+      $('.date-range').daterangepicker({format: 'YYYY-MM-DD'});
     },
   }
 }();

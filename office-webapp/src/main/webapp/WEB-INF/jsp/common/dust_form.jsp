@@ -14,19 +14,19 @@
 	<laber for="{col}"><b>{friendly}</b></laber>
 	{?.inputsource}
     	{@select key=inputsource}
-        	{@eq value="select"}
-        		<select id="{col}" name="{col}" class="select2">
-					<option value="">請選擇</option>
-				</select>
+        	{@eq value="select2"}
+                <div>
+            		<select id="{col}" name="{col}" class="select2">
+    					<option value="">請選擇</option>
+    				</select>
+                </div>
         	{/eq}
+            {@eq value="date-range"}
+                <input type="text" id="{col}" name="{col}" class="form-control date-range input-sm">
+            {/eq}
         	{@eq value="textarea"}
          
         	{/eq}
-        	{@any}
-        		<select id="{col}" name="{col}" class="select2">
-					<option value="">請選擇</option>
-				</select>
-        	{/any}
     	{/select}
 	{:else}
         <input type="text" id="{col}" name="{col}" class="form-control input-sm">        

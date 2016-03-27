@@ -19,13 +19,13 @@
 	rel="stylesheet" />
 
 <!-- jQuery 2.1.4 -->
-<script src="plugins/almsaeed/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<script src="plugins/adminLTE/plugins/jQuery/jQuery-2.1.4.min.js"></script>
 <!--[if lt IE 9]><script src=~/Scripts/AssetsBS3/ie8-responsive-file-warning.js></script><![endif]-->
 <script src=plugins/bootstrap/js/ie-emulation-modes-warning.js></script>
 <!--[if lt IE 9]><script src=https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js></script><script src=https://oss.maxcdn.com/respond/1.4.2/respond.min.js></script><![endif]-->
 
 
-<script src="plugins/almsaeed/bootstrap/js/bootstrap.min.js"></script>
+<script src="plugins/adminLTE/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript"
 	src="plugins/bootstrap-validator/js/bootstrapValidator.js"></script>
 <body>

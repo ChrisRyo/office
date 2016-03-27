@@ -14,7 +14,7 @@
 	name="viewport">
 <!-- Bootstrap 3.3.5 -->
 <link rel="stylesheet"
-	href="plugins/almsaeed/bootstrap/css/bootstrap.css">
+	href="plugins/adminLTE/bootstrap/css/bootstrap.css">
 <!-- Font Awesome -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -22,7 +22,7 @@
 <link rel="stylesheet"
 	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 <!-- Theme style -->
-<link rel="stylesheet" href="plugins/almsaeed/dist/css/AdminLTE.css">
+<link rel="stylesheet" href="plugins/adminLTE/dist/css/AdminLTE.css">
 <!-- waitMe -->
 <link rel="stylesheet" href="plugins/jquery-waitMe/css/waitMe.css">
 <!-- Validator -->
@@ -40,12 +40,12 @@
           apply the skin class to the body tag so the changes take effect.
     -->
 <link rel="stylesheet"
-	href="plugins/almsaeed/dist/css/skins/skin-blue.min.css">
+	href="plugins/adminLTE/dist/css/skins/skin-blue.min.css">
 
 <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
 <link rel="stylesheet"
-	href="plugins/almsaeed/dist/css/skins/_all-skins.min.css">
+	href="plugins/adminLTE/dist/css/skins/_all-skins.min.css">
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

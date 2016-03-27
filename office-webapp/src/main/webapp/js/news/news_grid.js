@@ -26,16 +26,17 @@ var NewsGrid = function() {
         },
         contents: {
           friendly: "內容",
-          inputsource: "textarea"
         },
         creatTime: {
           friendly: "新增時間",
+          inputsource: "date-range"
         },
         creatUid: {
           friendly: "新增人員",
         },
         updateTime: {
           friendly: "修改時間",
+          inputsource: "date-range"
         },
         updateUid: {
           friendly: "修改人員",

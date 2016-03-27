@@ -173,8 +173,6 @@
 <script src="plugins/almsaeed/plugins/select2/select2.full.min.js"></script>
 
 <!-- bootstrap time picker -->
-<script src="plugins/bootstrap-moment/js/moment.js"></script>
-<script src="plugins/bootstrap-moment/js/locale/zh-tw.js"></script>
 <script
 	src="plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
 

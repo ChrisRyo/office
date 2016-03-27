@@ -3,6 +3,11 @@
 
 <jsp:include page="../common/header.jsp" />
 <!-- 自訂 css (位置要固定)-->
+<!-- Select2 -->
+<link rel="stylesheet" href="plugins/adminLTE/plugins/select2/select2.min.css">
+<!-- daterange picker -->
+<link rel="stylesheet" href="plugins/adminLTE/plugins/daterangepicker/daterangepicker-bs3.css">
+
 <jsp:include page="../common/topmenu.jsp" />
 
 <!-- Main content -->
@@ -32,7 +37,7 @@
 					</div>
 				</div>
 				<!-- /.box-header -->
-				<div class="box-body">
+				<div class="box-body">`
 					<div class="control-group">
 						<input class="btn btn-primary btn-sm" type="button" value="新增"
 							onclick="expenses.openModel(1);" /> <input
@@ -53,7 +58,13 @@
 <!-- /.content -->
 <jsp:include page="../common/endmenu.jsp" />
 <jsp:include page="../common/footer.jsp" />
+
 <!-- 自訂 js (位置要固定)-->
+<!-- Select2 -->
+<script src="plugins/adminLTE/plugins/select2/select2.full.min.js"></script>
+<!-- date-range-picker -->
+<script src="plugins/adminLTE/plugins/daterangepicker/daterangepicker.js"></script>
+
 <script type="text/javascript" src="js/news/news.js"></script>
 <script type="text/javascript" src="js/news/news_grid.js"></script>
 </body>
