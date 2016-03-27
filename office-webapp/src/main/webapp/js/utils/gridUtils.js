@@ -54,6 +54,9 @@
     },
 
     creatDialog: function(grid){
+      var select2;
+      var daterange;
+
       var i = 0;
       var coldefs = grid.coldefs();
       var colArray = new Array();
@@ -82,13 +85,20 @@
     },
     
     select2: function() {
-      $(".select2").select2({
-        width: '100%'
-      });
+      var _obj = $(".select2");
+      if (_obj.size() > 0) {
+        _obj.select2({
+          width: '100%'
+        });
+      }
     },
 
     daterange: function() {
-      $('.date-range').daterangepicker({format: 'YYYY-MM-DD'});
+      var _obj = $(".date-range");
+      if (_obj.size() > 0) {
+        _obj.daterangepicker({format: 'YYYY/MM/DD'})
+          .inputmask("9999/99/99 - 9999/99/99", {"placeholder": "yyyy/mm/dd - yyyy/mm/dd"});
+      }
     },
   }
 }();

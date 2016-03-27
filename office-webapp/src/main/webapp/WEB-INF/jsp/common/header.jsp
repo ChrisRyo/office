@@ -25,15 +25,6 @@
 <link rel="stylesheet" href="plugins/adminLTE/dist/css/AdminLTE.css">
 <!-- waitMe -->
 <link rel="stylesheet" href="plugins/jquery-waitMe/css/waitMe.css">
-<!-- Validator -->
-<link rel="stylesheet"
-	href="plugins/bootstrap-validator/css/bootstrapValidator.css" />
-<!-- GRID -->
-<link rel="stylesheet" href="plugins/jquery-watable/css/watable.css">
-<!-- dialog -->
-<link rel="stylesheet"
-	href="plugins/bootstrap-dialog/css/bootstrap-dialog.min.css">
-
 
 <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
           page. However, you can choose any other skin. Make sure you
