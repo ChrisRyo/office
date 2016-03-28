@@ -8,7 +8,7 @@ import javax.validation.ConstraintViolationException;
 
 import org.hibernate.validator.internal.engine.ConstraintViolationImpl;
 
-import tw.com.ktv.logic.exception.code.ResultCode;
+import tw.com.ktv.exception.code.ResultCode;
 import tw.com.ktv.view.message.ValidMessage;
 
 

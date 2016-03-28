@@ -1,16 +1,13 @@
 package tw.com.ktv.view.controller;
 
-import java.util.List;
-
 import javax.ws.rs.BeanParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
 import org.glassfish.jersey.server.mvc.Viewable;
 
-import tw.com.ktv.logic.exception.code.ValidCode;
+import tw.com.ktv.exception.code.ValidCode;
 import tw.com.ktv.model.dto.Page;
-import tw.com.ktv.model.vo.News;
 import tw.com.ktv.service.NewsService;
 import tw.com.ktv.service.Impl.NewsServiceImpl;
 import tw.com.ktv.view.bean.NewsBean;

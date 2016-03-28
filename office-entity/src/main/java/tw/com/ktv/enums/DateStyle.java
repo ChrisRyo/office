@@ -7,7 +7,9 @@ package tw.com.ktv.enums;
  */
 public enum DateStyle {
   // java語法 , mysql語法
-  YYYY_MM_DD("yyyy-MM-dd", "%Y-%m-%d");
+  YYYY_MM_DD("yyyy-MM-dd", "%Y-%m-%d"),
+  
+  YYYY_MM_DD_HH_MM_SS("yyyy-MM-dd hh:mm:ss", "%Y-%m-%d");
 
   private final String format;
   private final String sql;

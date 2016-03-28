@@ -12,12 +12,12 @@ import org.apache.commons.lang.StringUtils;
 import tw.com.ktv.dao.PageMenuInfoDao;
 import tw.com.ktv.dao.impl.PageMenuInfoDaoImpl;
 import tw.com.ktv.enums.JpqlTitle;
-import tw.com.ktv.logic.utils.PropertiesSqlUtils;
 import tw.com.ktv.memcached.Memcached;
 import tw.com.ktv.memcached.MemcachedKey;
 import tw.com.ktv.model.vo.PageMenuInfo;
 import tw.com.ktv.service.PageMenuInfoService;
 import tw.com.ktv.util.UserUtils;
+import tw.com.ktv.utils.PropertiesSqlUtils;
 
 /**
  * Session Bean implementation class MemberBean

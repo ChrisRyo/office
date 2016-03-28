@@ -17,15 +17,14 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.QueryParam;
 import javax.xml.bind.annotation.XmlElement;
 
+import org.apache.commons.lang.ObjectUtils;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import org.apache.commons.lang.ObjectUtils;
-
 import tw.com.ktv.constraint.common.ValidCustom;
-import tw.com.ktv.logic.exception.code.ResultCode;
-import tw.com.ktv.logic.exception.code.ValidCode;
+import tw.com.ktv.exception.code.ResultCode;
+import tw.com.ktv.exception.code.ValidCode;
 
 /**
  * 返回訊息

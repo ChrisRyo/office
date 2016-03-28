@@ -1,4 +1,4 @@
-package tw.com.ktv.logic.exception.code;
+package tw.com.ktv.exception.code;
 
 /**
  * 結果代碼, 有需要請自行新增

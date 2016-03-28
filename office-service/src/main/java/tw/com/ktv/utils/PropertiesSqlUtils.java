@@ -1,4 +1,4 @@
-package tw.com.ktv.logic.utils;
+package tw.com.ktv.utils;
 
 import java.io.IOException;
 import java.io.InputStream;

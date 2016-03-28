@@ -11,7 +11,7 @@ import tw.com.ktv.jersey.filter.BaseResponseFilter;
 import tw.com.ktv.jersey.interceptors.BaseReadInterceptor;
 import tw.com.ktv.jersey.interceptors.BaseWriteInterceptor;
 import tw.com.ktv.jersey.mapper.ConstraintViolationsExceptionMapper;
-import tw.com.ktv.logic.utils.PropertiesSqlUtils;
+import tw.com.ktv.utils.PropertiesSqlUtils;
 
 public class MyApplication extends ResourceConfig {
   public MyApplication() {

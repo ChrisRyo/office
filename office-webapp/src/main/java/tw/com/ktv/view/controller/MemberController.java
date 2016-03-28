@@ -8,7 +8,7 @@ import javax.ws.rs.Path;
 
 import org.glassfish.jersey.server.mvc.Viewable;
 
-import tw.com.ktv.logic.exception.code.ValidCode;
+import tw.com.ktv.exception.code.ValidCode;
 import tw.com.ktv.model.vo.Member;
 import tw.com.ktv.service.MemberService;
 import tw.com.ktv.service.Impl.MemberServiceImpl;
