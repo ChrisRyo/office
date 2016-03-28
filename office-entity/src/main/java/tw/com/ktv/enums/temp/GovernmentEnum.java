@@ -11,7 +11,7 @@ import tw.com.ktv.model.dto.Menu;
  *
  */
 public enum GovernmentEnum {
-  臺北市政府(1), 新北市政府(2), 總統府(3), 府府府府府(4);
+  臺北市政府(999), 新北市政府(2), 總統府(3), 府府府府府(4);
 
   private final int index;
 
