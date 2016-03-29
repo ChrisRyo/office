@@ -7,6 +7,7 @@ var MemberGrid = function() {
     id: "gridMember",
     url: "/member/query",
     watable: new Object(),
+    title: "用戶列表",
 
     coldefs: function() {
       return {
@@ -17,68 +18,48 @@ var MemberGrid = function() {
         name: {
           friendly: "姓名",
         },
-        phone: {
-          friendly: "電話",
-        },
         email: {
           friendly: "信箱",
+        },
+        phone: {
+          friendly: "電話",
         },
         addr: {
           friendly: "地址",
         },
+        loginTime: {
+          friendly: "最近登入時間",
+          inputsource: "date-range",
+        },
+        loginIp: {
+          friendly: "最近登入IP",
+        },
         status: {
           friendly: "狀態",
         },
-        permission: {
-          friendly: "權限",
-        },
         creatTime: {
           friendly: "新增時間",
+          inputsource: "date-range",
+          nonedit: "nosend",
           hidden: true,
         },
         creatUid: {
           friendly: "新增人員",
+          nonedit: "nosend",
           hidden: true,
         },
         updateTime: {
           friendly: "修改時間",
+          inputsource: "date-range",
+          nonedit: "nosend",
           hidden: true,
         },
         updateUid: {
           friendly: "修改人員",
+          nonedit: "nosend",
           hidden: true,
-        }
+        },
       }
     },
-
-    formData: function() {
-      return {
-        "userName": $('#userName').val(),
-        "name": $('#name').val(),
-        "phone": $("#phone").val(),
-        "email": $('#email').val(),
-        "addr": $('#addr').val(),
-        "status": $('#status').val(),
-      };
-    },
-
-//    rowClicked: function(data) {
-//      var row = data.row;
-//      for ( var o in row) {
-//        $("#" + _table1 + " [id=" + o + "]").val(row[o]).change();
-//      }
-//    },
-//
-//    sourceFM: function(val, row) {
-//      var val = row.source;
-//      var name = $('#source option[value=' + val + ']').text();
-//      return name == "" ? row.val : name;
-//    },
-//
-//    billStoreFM: function(val, row) {
-//      var val = row.billStore;
-//      var name = $('#billStore option[value=' + val + ']').text();
-//      return name == "" ? row.val : name;
-//    },
   }
 }();

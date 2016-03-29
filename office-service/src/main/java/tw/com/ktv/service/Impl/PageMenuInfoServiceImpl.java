@@ -7,24 +7,17 @@ import java.util.TreeMap;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import org.apache.commons.lang.StringUtils;
-
 import tw.com.ktv.dao.PageMenuInfoDao;
 import tw.com.ktv.dao.impl.PageMenuInfoDaoImpl;
 import tw.com.ktv.enums.JpqlTitle;
-import tw.com.ktv.memcached.Memcached;
-import tw.com.ktv.memcached.MemcachedKey;
 import tw.com.ktv.model.vo.PageMenuInfo;
 import tw.com.ktv.service.PageMenuInfoService;
-import tw.com.ktv.util.UserUtils;
 import tw.com.ktv.utils.PropertiesSqlUtils;
 
 /**
  * Session Bean implementation class MemberBean
  */
 public class PageMenuInfoServiceImpl implements PageMenuInfoService {
-
-  private final static MemcachedKey pageMenuInfoKey = MemcachedKey.PAGEMENU_INFO;
 
   private PageMenuInfoDao pageMenuInfoDao = new PageMenuInfoDaoImpl();
 
@@ -38,25 +31,15 @@ public class PageMenuInfoServiceImpl implements PageMenuInfoService {
    */
   public String getPageMenuInfoHtml(Integer uid, String path) throws Exception {
 
-    String html = (String) Memcached.get(pageMenuInfoKey, uid);
+    EntityManager em = pageMenuInfoDao.getEntityManager();
 
-    if (StringUtils.isEmpty(html)) {
+    Query query =
+        em.createQuery(PropertiesSqlUtils.getJpql(JpqlTitle.LOGIN_PAGEPERMISSION.getTitle()))
+            .setParameter(1, uid);
 
-      EntityManager em = pageMenuInfoDao.getEntityManager();
+    List<PageMenuInfo> pageMenuInfoList = pageMenuInfoDao.queryByJpql(query);
 
-      Query query =
-          em.createQuery(PropertiesSqlUtils.getJpql(JpqlTitle.LOGIN_PAGEPERMISSION.getTitle()))
-              .setParameter(1, uid);
-
-      List<PageMenuInfo> pageMenuInfoList = pageMenuInfoDao.queryByJpql(query);
-
-      html = this.getPageMenuInfoHtml(path, pageMenuInfoList);
-
-      Memcached.set(pageMenuInfoKey, uid, html);
-
-    }
-
-    return html;
+    return this.getPageMenuInfoHtml(path, pageMenuInfoList);
   }
 
   /**
@@ -68,10 +51,6 @@ public class PageMenuInfoServiceImpl implements PageMenuInfoService {
    */
   private String getPageMenuInfoHtml(String path, List<PageMenuInfo> pageMenuInfoList)
       throws Exception {
-
-    if (StringUtils.isNotEmpty(UserUtils.getUser().getMenuHtml())) {
-      return UserUtils.getUser().getMenuHtml();
-    }
 
     TreeMap<Integer, PageMenuInfo> parent = new TreeMap<Integer, PageMenuInfo>();
     TreeMap<Integer, List<PageMenuInfo>> child = new TreeMap<Integer, List<PageMenuInfo>>();

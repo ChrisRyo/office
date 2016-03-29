@@ -21,11 +21,11 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${mysql.version}</version>
 		</dependency>
-		<!-- Memcached -->
+		<!-- Memcached
 		<dependency>
 			<groupId>com.googlecode.xmemcached</groupId>
 			<artifactId>xmemcached</artifactId>
 			<version>${memcached.version}</version>
-		</dependency>
+		</dependency>-->
 	</dependencies>
 </project>

@@ -30,7 +30,7 @@ var NewsGrid = function() {
         contents: {
           friendly: "內容",
           inputsource: "textarea",
-          textarea_height: "3",
+          textarea_height: "4",
         },
         creatTime: {
           friendly: "新增時間",

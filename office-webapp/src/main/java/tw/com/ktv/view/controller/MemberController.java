@@ -1,5 +1,7 @@
 package tw.com.ktv.view.controller;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.ws.rs.BeanParam;
@@ -30,10 +32,21 @@ public class MemberController extends BaseController {
   @Path("/query")
   public ReturnMessage getMemberList(@BeanParam MemberBean bean) throws Exception {
 
-    List<Member> list = memberService.getMemberList(bean.getMember(), true);
+    List<Member> list = new ArrayList<Member>();
+    
+    for (int i = 0 ; i < 10 ; i++) {
+      Member m = new Member();
+      m.setUserName("user" + i);
+      m.setName("測試" + i);
+      m.setEmail("test"+i+"@gmail.com");
+      m.setPhone("091"+i+"-888-999");
+      m.setAddr("測試地址測試地址"+i);
+      m.setStatus(0);
+      m.setLoginTime(new Date());
+      m.setLoginIp("127.0.0.1");
+      list.add(m);
+    }
 
-    // int count = memberService.queryCountBySql(bean.getMember(), true);
-
-    return new ReturnMessage(ValidCode.SUCCESS.getCode(), list, 1);
+    return new ReturnMessage(ValidCode.SUCCESS.getCode(), list, 9);
   }
 }

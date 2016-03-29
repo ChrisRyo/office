@@ -11,8 +11,8 @@
     {/select}
 {:else}
     <div class="form-group">
-        <div class="col-sm-3 bg-navy-active color-palette"><span><b>{friendly}</b></span></div>
-        <div class="col-sm-9 controls">
+        <label for="{mark}_{col}" class="col-sm-2 control-label"><b>{friendly}</b></label>
+        <div class="col-sm-10">
     	{?.inputsource}
         	{@select key=inputsource}
             	{@eq value="select2"}

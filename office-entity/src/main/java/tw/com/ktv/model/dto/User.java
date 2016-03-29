@@ -14,6 +14,8 @@ public class User {
 
   public final static String USER_SESSION = "userInfo";
   
+  private String path;
+  
   private String menuHtml;
 
   @Delegate

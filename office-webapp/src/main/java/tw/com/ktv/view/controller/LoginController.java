@@ -14,7 +14,10 @@ import tw.com.ktv.exception.code.ValidCode;
 import tw.com.ktv.model.dto.User;
 import tw.com.ktv.model.vo.Member;
 import tw.com.ktv.service.MemberService;
+import tw.com.ktv.service.PageMenuInfoService;
 import tw.com.ktv.service.Impl.MemberServiceImpl;
+import tw.com.ktv.service.Impl.PageMenuInfoServiceImpl;
+import tw.com.ktv.util.UserUtils;
 import tw.com.ktv.view.bean.LoginBean;
 import tw.com.ktv.view.message.ReturnMessage;
 
@@ -33,6 +36,8 @@ public class LoginController extends BaseController {
   HttpServletRequest request;
 
   private MemberService membrtService = new MemberServiceImpl();
+
+  private PageMenuInfoService pageMenuInfoService = new PageMenuInfoServiceImpl();
 
   @GET
   public Viewable init() throws Exception {
@@ -56,9 +61,17 @@ public class LoginController extends BaseController {
     }
 
     User user = new User();
+    // 會員資料
     user.setMember(member);
 
-    request.getSession().setAttribute(User.USER_SESSION, user);
+    // 路徑
+    user.setPath(request.getScheme() + "://" + request.getServerName() + ":"
+        + request.getServerPort() + request.getContextPath());
+
+    // 選單
+    user.setMenuHtml(pageMenuInfoService.getPageMenuInfoHtml(member.getUid(), user.getPath()));
+    
+    UserUtils.setUser(user);
 
     return new ReturnMessage(ValidCode.SUCCESS.getCode(), request.getContextPath() + "/home");
   }

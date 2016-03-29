@@ -11,7 +11,7 @@
     {/select}
 {:else}
 	<div class="col-sm-3">
-        <div class="bg-navy-active color-palette"><span for="{mark}_{col}"><b>{friendly}</b></span></div>
+        <label for="{mark}_{col}"><b>{friendly}</b></label>
 	{?.inputsource}
     	{@select key=inputsource}
         	{@eq value="select2"}

@@ -41,6 +41,20 @@ public class EntityUtils {
    * @return
    * @throws Exception
    */
+  public static String getSqlCountSql(String sql) throws Exception {
+    // 先寫死 再想辦法
+    String countSQL = sql.replace("SELECT c FROM", "SELECT count(c) FROM");
+    return countSQL;
+  }
+
+  /**
+   * 查詢總筆數
+   * 
+   * @param entity
+   * @param isLike
+   * @return
+   * @throws Exception
+   */
   public static String getQueryCountSql(Object entity, boolean isLike) throws Exception {
     String type = "count(c)";
     return getSql(entity, type, isLike);

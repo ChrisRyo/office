@@ -117,7 +117,7 @@
           $("#search_text_" + id).hide();
           $("#search_button_" + id).show();
         }
-      });
+      }).click();
 
       var modalId = "#form_modal_" + id;
       var tableId = searchId + ", " + modalId;
@@ -160,7 +160,7 @@
     },
 
     update: function(gridId) {
-
+      $("#dialog_" + gridId).modal("show");
     },
 
     delete: function(gridId) {

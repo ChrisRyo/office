@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Page {
-  private int totale;
+  private long totale;
   private List<?> dataList;
 }

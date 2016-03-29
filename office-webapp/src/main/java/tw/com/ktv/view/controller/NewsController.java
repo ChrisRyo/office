@@ -28,9 +28,8 @@ public class NewsController extends BaseController {
   @Path("/query")
   public ReturnMessage getNewsList(@BeanParam NewsBean bean) throws Exception {
 
-    Page page = newsService.getNewsList(bean.getNews(), bean.getPageIndex(), bean.getPageSize(), true);
-
-    // int count = NewsService.queryCountBySql(bean.getNews(), true);
+    Page page =
+        newsService.getNewsList(bean.getNews(), bean.getPageIndex(), bean.getPageSize(), true);
 
     return new ReturnMessage(ValidCode.SUCCESS.getCode(), page.getDataList(), page.getTotale());
   }

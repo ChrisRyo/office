@@ -1,7 +1,7 @@
 package tw.com.ktv.model.vo;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -44,11 +44,11 @@ public class Member extends BaseEntity implements Serializable {
 
   private String addr;
 
-  private Short status;
+  private Integer status;
 
   @Column(name = "login_ip")
   private String loginIp;
 
   @Column(name = "login_time")
-  private Timestamp loginTime;
+  private Date loginTime;
 }

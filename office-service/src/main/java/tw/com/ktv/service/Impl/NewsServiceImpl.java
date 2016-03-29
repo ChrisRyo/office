@@ -2,21 +2,20 @@ package tw.com.ktv.service.Impl;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+
 import tw.com.ktv.dao.NewsDao;
 import tw.com.ktv.dao.impl.NewsDaoImpl;
-import tw.com.ktv.memcached.MemcachedKey;
 import tw.com.ktv.model.dto.Page;
 import tw.com.ktv.model.vo.News;
 import tw.com.ktv.service.NewsService;
-import tw.com.ktv.util.DataUtils;
+import tw.com.ktv.util.EntityUtils;
 
 /**
  * Session Bean implementation class MemberBean
  */
 public class NewsServiceImpl implements NewsService {
-
-  private final static MemcachedKey newsFilterKey = MemcachedKey.NEWS_FILLTER;
-  private final static MemcachedKey newsInfoKey = MemcachedKey.NEWS_INFO;
 
   private NewsDao newsDao = new NewsDaoImpl();
 
@@ -32,8 +31,15 @@ public class NewsServiceImpl implements NewsService {
    */
   @Override
   public Page getNewsList(News news, int pageIndex, int pageSize, boolean isLike) throws Exception {
-    List<News> list = newsDao.queryByEntity(news, newsFilterKey, newsInfoKey, true);
-    
-    return new Page(list.size(), DataUtils.subList(list, pageIndex, pageSize));
+
+    EntityManager em = newsDao.getEntityManager();
+
+    String sql = EntityUtils.getQueryEntitySql(news, isLike);
+
+    List<News> list = newsDao.queryByJpql(em.createQuery(sql), pageIndex, pageSize);
+
+    long count = newsDao.queryCountByJpql(em.createQuery(EntityUtils.getSqlCountSql(sql)));
+
+    return new Page(count, list);
   }
 }

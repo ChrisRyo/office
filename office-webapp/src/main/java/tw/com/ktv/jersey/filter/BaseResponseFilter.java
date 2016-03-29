@@ -2,6 +2,7 @@ package tw.com.ktv.jersey.filter;
 
 import java.io.IOException;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerResponseContext;
@@ -12,6 +13,8 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.Provider;
 
 import tw.com.ktv.entityManager.EntityManagerHelper;
+import tw.com.ktv.model.dto.User;
+import tw.com.ktv.util.UserUtils;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -23,6 +26,9 @@ import com.google.gson.GsonBuilder;
  */
 @Provider
 public class BaseResponseFilter implements ContainerResponseFilter {
+
+  @Context
+  HttpServletRequest request;
 
   @Context
   HttpServletResponse response;
@@ -44,5 +50,10 @@ public class BaseResponseFilter implements ContainerResponseFilter {
 
     // close connection
     EntityManagerHelper.closeConnection();
+
+    // set user data
+    if ("POST".equals(request.getMethod())) {
+      request.getSession().setAttribute(User.USER_SESSION, UserUtils.getUser());
+    }
   }
 }

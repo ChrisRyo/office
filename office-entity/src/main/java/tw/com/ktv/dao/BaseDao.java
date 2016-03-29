@@ -5,8 +5,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import tw.com.ktv.memcached.MemcachedKey;
-
 /**
  * BaseDaoImpl
  * 
@@ -24,6 +22,24 @@ public interface BaseDao {
    * @throws Exception
    */
   public <P> List<P> queryByJpql(Query query) throws Exception;
+
+  /**
+   * 
+   * @param Query
+   * @param pageIndex
+   * @param pageSize
+   * @return
+   * @throws Exception
+   */
+  public <P> List<P> queryByJpql(Query query, int pageIndex, int pageSize) throws Exception;
+
+  /**
+   * 
+   * @param Query
+   * @return count
+   * @throws Exception
+   */
+  public long queryCountByJpql(Query query) throws Exception;
 
   /**
    * 
@@ -54,18 +70,18 @@ public interface BaseDao {
    */
   public <P> List<P> queryByEntity(Object entity, boolean isLike) throws Exception;
 
-  /**
-   * 查詢 by entity & MemcachedKey
-   * 
-   * @param entity
-   * @param fiterKey
-   * @param dataKey
-   * @param isLike
-   * @return
-   * @throws Exception
-   */
-  public <P> List<P> queryByEntity(Object entity, MemcachedKey fiterKey, MemcachedKey dataKey,
-      boolean isLike) throws Exception;
+  // /**
+  // * 查詢 by entity & MemcachedKey
+  // *
+  // * @param entity
+  // * @param fiterKey
+  // * @param dataKey
+  // * @param isLike
+  // * @return
+  // * @throws Exception
+  // */
+  // public <P> List<P> queryByEntity(Object entity, MemcachedKey fiterKey, MemcachedKey dataKey,
+  // boolean isLike) throws Exception;
 
   /**
    * 查詢總筆數 by entity
