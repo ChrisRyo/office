@@ -21,11 +21,13 @@ var commonUtils = function() {
       }
     },
 
-    getMenu: function(url, selectObj) {
+    getMenu: function(path, selectObj) {
+      var url = "/menu/getEmenu/";
+
       $.ajax({
         type: 'GET',
         contentType: 'application/json',
-        url: _path + url,
+        url: _pathTitle + url + path,
         dataType: "json",
         success: function(json) {
           for ( var o in json) {

@@ -57,15 +57,13 @@ var expenses = function() {
   return {
 
     initMenu: function() {
-      
-      var url = "/menu/getEmenu/";
-      
-      commonUtils.getMenu(url + "queryStroe", $('#billStore, #realStore'));
-      commonUtils.getMenu(url + "querySource", $('#source'));
-      commonUtils.getMenu(url + "queryPayeeUnit", $('#payeeUnit'));
-      commonUtils.getMenu(url + "queryPlayer", $('#payeePlayer'));
-      commonUtils.getMenu(url + "queryCompany", $('#payeeCompany'));
-      commonUtils.getMenu(url + "queryGovernment", $('#payeeGovernment'));
+
+      commonUtils.getMenu("queryStroe", $('#billStore, #realStore'));
+      commonUtils.getMenu("querySource", $('#source'));
+      commonUtils.getMenu("queryPayeeUnit", $('#payeeUnit'));
+      commonUtils.getMenu("queryPlayer", $('#payeePlayer'));
+      commonUtils.getMenu("queryCompany", $('#payeeCompany'));
+      commonUtils.getMenu("queryGovernment", $('#payeeGovernment'));
 
     },
 

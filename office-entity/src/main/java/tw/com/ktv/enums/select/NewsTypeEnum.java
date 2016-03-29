@@ -1,6 +1,5 @@
 package tw.com.ktv.enums.select;
 
-import tw.com.ktv.enums.MenuEnum;
 
 
 /**
@@ -11,15 +10,14 @@ import tw.com.ktv.enums.MenuEnum;
 public enum NewsTypeEnum implements MenuEnum {
   公告(1), 活動(2);
 
-  private final int index;
+  private final int value;
 
-  private NewsTypeEnum(int index) {
-    this.index = index;
+  private NewsTypeEnum(int value) {
+    this.value = value;
   }
 
   @Override
-  public int getIndex() {
-    return index;
+  public int getValue() {
+    return value;
   }
-
 }

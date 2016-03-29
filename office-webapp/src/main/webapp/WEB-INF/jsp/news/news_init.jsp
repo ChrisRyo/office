@@ -19,34 +19,17 @@
 			</ol>
 		</section>
 		<section class="content">
+			<!-- serach-->
 			<div id="search_gridNews">
 				<jsp:include page="../common/dust_search.jsp" />
 			</div>
 
 			<!-- grid-->
-			<div class="box box-default" id="table1Grid">
-				<div class="box-header with-border">
-					<h3 class="box-title">公告列表</h3>
-					<div class="box-tools pull-right">
-						<button class="btn btn-box-tool" data-widget="collapse">
-							<i class="fa fa-minus"></i>
-						</button>
-					</div>
-				</div>
-				<!-- /.box-header -->
-				<div class="box-body">`
-					<div class="control-group">
-						<input class="btn btn-primary btn-sm" type="button" value="新增"
-							onclick="expenses.openModel(1);" /> <input
-							class="btn btn-warning btn-sm" type="button" value="修改"
-							onclick="expenses.openModel(2);" /> <input
-							class="btn btn-danger btn-sm" type="button" value="刪除"
-							onclick="expensesSubmit.deleteDetail();" />
-					</div>
-					<div id="gridNews" style="overflow-x:auto;overflow-y:hidden;"></div>
-				</div>
+			<div id="datatable_gridNews">
+				<jsp:include page="../common/dust_datatable.jsp" />
 			</div>
 		</section>
+		<!-- dialog -->
 		<div id="modal_gridNews">
 			<jsp:include page="../common/dust_modal.jsp" />
 		</div>

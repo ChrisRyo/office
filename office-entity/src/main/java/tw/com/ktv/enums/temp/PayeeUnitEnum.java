@@ -1,49 +1,32 @@
 package tw.com.ktv.enums.temp;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import tw.com.ktv.model.dto.Menu;
+import tw.com.ktv.enums.select.MenuEnum;
 
 /**
+ * 單位資料
  * 
  * @author chrisryo
  *
  */
-public enum PayeeUnitEnum {
+public enum PayeeUnitEnum implements MenuEnum {
   員工(1, PlayerEnum.class), 廠商(2, CompanyEnum.class), 政府單位(3, GovernmentEnum.class);
 
-  private final int index;
+  private final int value;
   private final Class<?> enums;
 
-  private PayeeUnitEnum(int index, Class<?> enums) {
-    this.index = index;
+  private PayeeUnitEnum(int value, Class<?> enums) {
+    this.value = value;
     this.enums = enums;
   }
-
-  public int getIndex() {
-    return index;
+  
+  @Override
+  public int getValue() {
+    return value;
   }
+
 
   public Class<?> getEnums() {
     return enums;
-  }
-
-  /**
-   * 
-   * @return
-   */
-  public static List<Menu> getMenu() {
-
-    List<Menu> list = new ArrayList<Menu>();
-
-    PayeeUnitEnum[] enums = PayeeUnitEnum.values();
-
-    for (PayeeUnitEnum e : enums) {
-      list.add(new Menu(e.getIndex(), e.name()));
-    }
-
-    return list;
   }
 
   // /**

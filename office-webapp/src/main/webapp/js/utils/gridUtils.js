@@ -1,14 +1,18 @@
 /**
  * chrisryo
  */
- var gridUtils = function() {
+ var GridUtils = function() {
   return {
 
     initGrid: function(grid, genModel) {
+      var id = grid.id;
+      var title = grid.title;
 
-      var waTable = $('#'+grid.id).WATable({
-        url: _path + grid.url,      //Url to a webservice if not setting data manually as we do in this example
-        urlData: grid.formData(),   //Any data you need to pass to the webservice
+      this.initHtml(id, title);
+
+      var waTable = $('#'+id).WATable({
+        url: _pathTitle + grid.url,      //Url to a webservice if not setting data manually as we do in this example
+        urlData: new Object(),   //Any data you need to pass to the webservice
         urlPost: false,             //Use POST httpmethod to webservice. Default is GET.
         debug:false,                //Prints some debug info to console
         dataBind: true,             //Auto-updates table when changing data row values. See example below. (Note. You need a column with the 'unique' property)
@@ -53,7 +57,30 @@
       return waTable;
     },
 
+    initHtml: function(id, title) {
+      // add grid html
+      dust.loadSource(dust.compile($("#_dust_datatableform").html(),"dustDatatableform"));
+      dust.render("dustDatatableform", {name:id, "title":title}, function(err, out) {       
+        $("#datatable_"+id).append(out);
+      });
+
+      // event
+      var datatableId = "#datatable_" + id;
+      $("#datatable_text_" + id).hide();
+      $(datatableId).find(":button[data-widget='collapse']").click(function(){
+        if($(this).find(".fa-minus").size() > 0) {
+          $("#datatable_text_" + id).show();
+          $("#datatable_button_" + id).hide();
+        } else {
+          $("#datatable_text_" + id).hide();
+          $("#datatable_button_" + id).show();
+        }
+      });
+    },
+
     creatDialog: function(grid){
+      var id = grid.id;
+      var title = grid.title;
       var select2;
       var daterange;
 
@@ -65,40 +92,79 @@
         colArray[i++] = coldefs[o];
       }
 
-      var dataObj = {"title":grid.title, "name":grid.id, "data":colArray};
+      // add html
+      var dataSearchObj = {"mark":"Q", "title":title, "name":id, "data":colArray};
+      var dataModalObj = {"mark":"M", "title":title, "name":id, "data":colArray};
 
       dust.loadSource(dust.compile($("#_dust_searchform").html(),"dustSearchForm"));
-      dust.render("dustSearchForm", dataObj, function(err, out) {       
-        $("#search_"+grid.id).append(out);
+      dust.render("dustSearchForm", dataSearchObj, function(err, out) {       
+        $("#search_"+id).append(out);
       });
 
       dust.loadSource(dust.compile($("#_dust_modalform").html(),"dustModalForm"));
-      dust.render("dustModalForm", dataObj, function(err, out) {       
-        $("#modal_"+grid.id).append(out);
+      dust.render("dustModalForm", dataModalObj, function(err, out) {       
+        $("#modal_"+id).append(out);
       });
 
+      // event
+      var searchId = "#form_search_" + id;
+      $("#search_text_" + id).hide();
+      $(searchId).find(":button[data-widget='collapse']").click(function(){
+        if($(this).find(".fa-minus").size() > 0) {
+          $("#search_text_" + id).show();
+          $("#search_button_" + id).hide();
+        } else {
+          $("#search_text_" + id).hide();
+          $("#search_button_" + id).show();
+        }
+      });
+
+      var modalId = "#form_modal_" + id;
+      var tableId = searchId + ", " + modalId;
+
       // select2
-      this.select2();
+      this.select2(tableId);
 
       //Date range picker
-      this.daterange();
+      this.daterange(tableId);
     },
     
-    select2: function() {
-      var _obj = $(".select2");
+    select2: function(tableId) {
+      var _obj = $(tableId).find(".select2");
       if (_obj.size() > 0) {
+        _obj.each(function(index, ele){
+          var path = $(ele).attr("data-menu-path");
+          commonUtils.getMenu(path, $(this));
+        });
+
         _obj.select2({
           width: '100%'
         });
       }
     },
 
-    daterange: function() {
+    daterange: function(tableId) {
       var _obj = $(".date-range");
       if (_obj.size() > 0) {
         _obj.daterangepicker({format: 'YYYY/MM/DD'})
           .inputmask("9999/99/99 - 9999/99/99", {"placeholder": "yyyy/mm/dd - yyyy/mm/dd"});
       }
+    },
+
+    search: function(gridId) {
+
+    },
+
+    insert: function(gridId) {
+      $("#dialog_" + gridId).modal("show");
+    },
+
+    update: function(gridId) {
+
+    },
+
+    delete: function(gridId) {
+
     },
   }
 }();

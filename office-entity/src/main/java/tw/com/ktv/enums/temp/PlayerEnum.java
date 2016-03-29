@@ -1,42 +1,24 @@
 package tw.com.ktv.enums.temp;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import tw.com.ktv.model.dto.Menu;
+import tw.com.ktv.enums.select.MenuEnum;
 
 /**
+ * 員工資料
  * 
  * @author chrisryo
  *
  */
-public enum PlayerEnum {
-  林詩婷(1), 林誠耀(2), 林戴英(3), 林騰朵(4), 林一二(5), 林老師(6);
+public enum PlayerEnum implements MenuEnum {
+  林詩婷(1), 林誠耀(2), 林戴英(3), 林騰朵(4), 林一二(5);
 
-  private final int index;
+  private final int value;
 
-  private PlayerEnum(int index) {
-    this.index = index;
+  private PlayerEnum(int value) {
+    this.value = value;
   }
 
-  public int getIndex() {
-    return index;
-  }
-
-  /**
-   * 
-   * @return
-   */
-  public static List<Menu> getMenu() {
-    
-    List<Menu> list = new ArrayList<Menu>();
-
-    PlayerEnum[] enums = PlayerEnum.values();
-
-    for (PlayerEnum e : enums) {
-      list.add(new Menu(e.getIndex(), e.name()));
-    }
-
-    return list;
+  @Override
+  public int getValue() {
+    return value;
   }
 }

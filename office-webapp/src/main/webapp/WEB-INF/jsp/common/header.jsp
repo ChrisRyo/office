@@ -46,5 +46,5 @@
     <![endif]-->
 
 <script>
-	var _path = '${it.pathTitle}';
+	var _pathTitle = '${it.pathTitle}';
 </script>
