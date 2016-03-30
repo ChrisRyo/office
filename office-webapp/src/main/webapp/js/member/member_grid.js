@@ -30,12 +30,15 @@ var MemberGrid = function() {
         loginTime: {
           friendly: "最近登入時間",
           inputsource: "date-range",
+          nonedit: "nosend",
         },
         loginIp: {
           friendly: "最近登入IP",
+          nonedit: "nosend",
         },
         status: {
           friendly: "狀態",
+          nonedit: "nosend",
         },
         creatTime: {
           friendly: "新增時間",
@@ -59,7 +62,17 @@ var MemberGrid = function() {
           nonedit: "nosend",
           hidden: true,
         },
+        permission: {
+          friendly: "頁面權限",
+          nonedit: "nosend",
+          nonsearch: "nosend",
+          format: MemberGrid.formatPermission
+        },
       }
+    },
+
+    formatPermission: function(){
+      return "<input type='button' class='btn bg-purple btn-xs' value='明細'>";
     },
   }
 }();

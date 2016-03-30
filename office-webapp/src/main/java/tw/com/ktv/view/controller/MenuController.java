@@ -11,6 +11,11 @@ import javax.ws.rs.core.MediaType;
 import tw.com.ktv.enums.select.MenusEnum;
 import tw.com.ktv.model.dto.Menu;
 
+/**
+ * 下拉選單
+ * @author chrisryo
+ *
+ */
 @Path("/menu")
 public class MenuController {
 

@@ -5,6 +5,11 @@ import javax.ws.rs.Path;
 
 import org.glassfish.jersey.server.mvc.Viewable;
 
+/**
+ * 首頁
+ * @author chrisryo
+ *
+ */
 @Path("/home")
 public class HomeController extends BaseController {
 

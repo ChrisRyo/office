@@ -18,12 +18,12 @@ import tw.com.ktv.view.bean.MemberBean;
 import tw.com.ktv.view.message.ReturnMessage;
 
 /**
- * 用戶列表
+ * 會計科目管理
  * @author chrisryo
  *
  */
-@Path("/member")
-public class MemberController extends BaseController {
+@Path("/accounts")
+public class AccountsController extends BaseController {
 
   private MemberService memberService = new MemberServiceImpl();
 

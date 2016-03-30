@@ -13,6 +13,11 @@ import tw.com.ktv.service.Impl.NewsServiceImpl;
 import tw.com.ktv.view.bean.NewsBean;
 import tw.com.ktv.view.message.ReturnMessage;
 
+/**
+ * 公告列表
+ * @author chrisryo
+ *
+ */
 @Path("/news")
 public class NewsController extends BaseController {
 

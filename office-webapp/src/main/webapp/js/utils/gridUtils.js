@@ -108,7 +108,7 @@
 
       // event
       var searchId = "#form_search_" + id;
-      $("#search_text_" + id).hide();
+      $("#search_button_" + id).hide();
       $(searchId).find(":button[data-widget='collapse']").click(function(){
         if($(this).find(".fa-minus").size() > 0) {
           $("#search_text_" + id).show();
@@ -117,7 +117,7 @@
           $("#search_text_" + id).hide();
           $("#search_button_" + id).show();
         }
-      }).click();
+      });
 
       var modalId = "#form_modal_" + id;
       var tableId = searchId + ", " + modalId;
