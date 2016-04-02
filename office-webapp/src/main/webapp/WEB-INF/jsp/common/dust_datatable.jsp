@@ -4,8 +4,8 @@
 <script type="text/x-template" id="_dust_datatableform" >
     <div class="box box-default">
         <div class="box-header with-border">
-
-            <div class="control-group" id="datatable_button_{name}">
+            <span><h3 class="box-title">{title} &nbsp;&nbsp;&nbsp;&nbsp;</h3></span>
+            <lable class="control-group" id="datatable_button_{name}">
                 <input id="insert_button_{name}" class="btn btn-primary btn-xs" type="button" value="新增"
                 onclick="GridUtils.insert('{name}');" /> 
 
@@ -14,9 +14,8 @@
 
                 <input id="delete_button_{name}" class="btn btn-danger btn-xs" type="button" value="刪除"
                 onclick="GridUtils.delete('{name}');" />
-            </div>
-
-            <span id="datatable_text_{name}"><h3 class="box-title">{title}</h3></span>
+            </lable>
+            <span id="datatable_text_{name}">列表</span>
 
             <div class="box-tools pull-right">
                 <button class="btn btn-box-tool" data-widget="collapse">
