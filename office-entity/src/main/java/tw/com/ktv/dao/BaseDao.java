@@ -5,6 +5,8 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import tw.com.ktv.model.dto.Page;
+
 /**
  * BaseDaoImpl
  * 
@@ -14,6 +16,18 @@ import javax.persistence.Query;
 public interface BaseDao {
 
   public EntityManager getEntityManager();
+
+  /**
+   * 
+   * @param entity
+   * @param pageIndex
+   * @param pageSize
+   * @param isLike
+   * @return
+   * @throws Exception
+   */
+  public Page queryPage(Object entity, int pageIndex, int pageSize, boolean isLike)
+      throws Exception;
 
   /**
    * 

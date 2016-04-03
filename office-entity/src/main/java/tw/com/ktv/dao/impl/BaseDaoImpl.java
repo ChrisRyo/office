@@ -9,6 +9,7 @@ import javax.persistence.Query;
 
 import tw.com.ktv.dao.BaseDao;
 import tw.com.ktv.entityManager.EntityManagerHelper;
+import tw.com.ktv.model.dto.Page;
 import tw.com.ktv.util.EntityUtils;
 
 /**
@@ -33,6 +34,29 @@ public abstract class BaseDaoImpl implements BaseDao {
 
   public EntityManager getEntityManager() {
     return em;
+  }
+
+  /**
+   * 
+   * @param entity
+   * @param pageIndex
+   * @param pageSize
+   * @param isLike
+   * @return
+   * @throws Exception
+   */
+  public Page queryPage(Object entity, int pageIndex, int pageSize, boolean isLike)
+      throws Exception {
+
+    String sql = EntityUtils.getQueryEntitySql(entity, isLike);
+
+    List<Object> list = this.queryByJpql(em.createQuery(sql), pageIndex, pageSize);
+
+    String countSQL = sql.replace("SELECT c FROM", "SELECT count(c) FROM");
+
+    long count = this.queryCountByJpql(em.createQuery(countSQL));
+
+    return new Page(count, list);
   }
 
   /**

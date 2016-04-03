@@ -8,11 +8,11 @@
 <jsp:include page="../common/topmenu.jsp" />
 
 <!-- Main content -->
-<div id="newsForm">
+<div id="accountsIteamForm">
 	<div class="content-wrapper">
 		<!-- Content Header (Page header) -->
 		<section class="content-header">
-			<h1>公告列表管理</h1>
+			<h1>會計科目管理</h1>
 			<ol class="breadcrumb">
 				<li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
 				<li class="active">Here</li>
@@ -20,17 +20,17 @@
 		</section>
 		<section class="content">
 			<!-- serach-->
-			<div id="search_gridNews">
+			<div id="search_gridAccountsIteam">
 				<jsp:include page="../common/dust_search.jsp" />
 			</div>
 
 			<!-- grid-->
-			<div id="datatable_gridNews">
+			<div id="datatable_gridAccountsIteam">
 				<jsp:include page="../common/dust_datatable.jsp" />
 			</div>
 		</section>
 		<!-- dialog -->
-		<div id="modal_gridNews">
+		<div id="modal_gridAccountsIteam">
 			<jsp:include page="../common/dust_modal.jsp" />
 		</div>
 	</div>
@@ -42,7 +42,7 @@
 
 <!-- 自訂 js (位置要固定)-->
 
-<script type="text/javascript" src="js/news/news.js"></script>
-<script type="text/javascript" src="js/news/news_grid.js"></script>
+<script type="text/javascript" src="js/accountsIteam/accountsIteam.js"></script>
+<script type="text/javascript" src="js/accountsIteam/accountsIteam_grid.js"></script>
 </body>
 </html>

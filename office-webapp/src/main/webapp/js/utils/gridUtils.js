@@ -10,6 +10,17 @@
 
       this.initHtml(id, title);
 
+      // format
+      var coldefs = grid.coldefs();
+      var index = 1;
+      var colObj = new Object();
+      for (var o in coldefs) {
+        coldefs[o]['index'] = index++;
+        var col = coldefs[o].col;
+        colObj[col] = coldefs[o];
+      }
+      // ---format
+
       var waTable = $('#'+id).WATable({
         url: _pathTitle + grid.url,      //Url to a webservice if not setting data manually as we do in this example
         urlData: new Object(),   //Any data you need to pass to the webservice
@@ -31,7 +42,7 @@
         preFill: true,              //Initially fills the table with empty rows (as many as the pagesize).
         rownumbers: true,
         data:{
-          cols: grid.coldefs(),
+          cols: colObj,
           rows:[]
         },
         types: { //type specific options
@@ -83,18 +94,11 @@
       var title = grid.title;
       var select2;
       var daterange;
-
-      var i = 0;
       var coldefs = grid.coldefs();
-      var colArray = new Array();
-      for (var o in coldefs) {
-        coldefs[o].col = o;
-        colArray[i++] = coldefs[o];
-      }
 
       // add html
-      var dataSearchObj = {"mark":"Q", "title":title, "name":id, "data":colArray};
-      var dataModalObj = {"mark":"M", "title":title, "name":id, "data":colArray};
+      var dataSearchObj = {"mark":"Q", "title":title, "name":id, "data":coldefs};
+      var dataModalObj = {"mark":"M", "title":title, "name":id, "data":coldefs};
 
       dust.loadSource(dust.compile($("#_dust_searchform").html(),"dustSearchForm"));
       dust.render("dustSearchForm", dataSearchObj, function(err, out) {       

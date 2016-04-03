@@ -10,47 +10,55 @@ var InExMainGrid = function() {
     title: "收支總",
 
     coldefs: function() {
-      return {
-        accountDate: {
+      return [
+        {
+          col: "accountDate",
           friendly: "帳目日期",
           inputsource: "date-range",
           unique: true
         },
-        accountStroe: {
+        {
+          col: "accountStroe",
           friendly: "帳目店家",
         },
-        incomeAmt: {
+        {
+          col: "incomeAmt",
           friendly: "結算總收入",
         },
-        expenseAmt: {
+        {
+          col: "expenseAmt",
           friendly: "結算總支出",
         },
-        creatTime: {
+        {
+          col: "creatTime",
           friendly: "新增時間",
           inputsource: "date-range",
           nonsearch: "nosend",
           nonedit: "nosend",
           hidden: true,
         },
-        creatUid: {
+        {
+          col: "creatUid",
           friendly: "新增人員",
           nonsearch: "nosend",
           nonedit: "nosend",
           hidden: true,
         },
-        updateTime: {
+        {
+          col: "updateTime",
           friendly: "修改時間",
           nonsearch: "nosend",
           nonedit: "nosend",
           hidden: true,
         },
-        updateUid: {
+        {
+          col: "updateUid",
           friendly: "修改人員",
           nonsearch: "nosend",
           nonedit: "nosend",
           hidden: true,
         },
-      }
+      ]
     },
   }
 }();
@@ -64,8 +72,9 @@ var IncomeGrid = function() {
     title: "收入明細",
 
     coldefs: function() {
-      return {
-      	seq: {
+      return [
+      	{
+          col: "seq",
           friendly: "流水號",
           unique: true,
           hidden: true,
@@ -73,92 +82,113 @@ var IncomeGrid = function() {
           nonedit: true,
           noPicker : true,
         },
-        accountDate: {
+        {
+          col: "accountDate",
           friendly: "帳目日期",
           hidden: true,
           nonsearch: "nosend",
           nonedit: true,
           noPicker : true,
         },
-        accountStroe: {
+        {
+          col: "accountStroe",
           friendly: "帳目店家",
           hidden: true,
           nonsearch: "nosend",
           nonedit: true,
           noPicker : true,
         },
-        realStroe: {
+        {
+          col: "realStroe",
           friendly: "發生店家",
         },
-        realPenson: {
+        {
+          col: "realPenson",
           friendly: "發生班別",
         },
-		    invoiceDatetime: {
+		    {
+          col: "invoiceDatetime",
           friendly: "請款時間",
         },
-        paymentDatetime: {
+        {
+          col: "paymentDatetime",
           friendly: "結清時間",
         },
-        payeeUnit: {
+        {
+          col: "payeeUnit",
           friendly: "請款單位",
         },
-        payee: {
+        {
+          col: "payee",
           friendly: "請款人",
         },
-        accountsIteam: {
+        {
+          col: "accountsIteam",
           friendly: "會計科目",
         },
-        accountsDetail: {
+        {
+          col: "accountsDetail",
           friendly: "科目內容",
         },
-        price: {
+        {
+          col: "price",
           friendly: "單價",
         },
-        quantity: {
+        {
+          col: "quantity",
           friendly: "數量",
         },
-        unit: {
+        {
+          col: "unit",
           friendly: "單位",
         },
-        amt: {
+        {
+          col: "amt",
           friendly: "金額",
         },
-        chkStatus: {
+        {
+          col: "chkStatus",
           friendly: "審核狀態",
         },
-        mark: {
+        {
+          col: "mark",
           friendly: "備註",
         },
-        filePath: {
+        {
+          col: "filePath",
           friendly: "檔案路徑",
           nonsearch: "nosend",
         },
-        creatTime: {
+        {
+          col: "creatTime",
           friendly: "新增時間",
           inputsource: "date-range",
           nonsearch: "nosend",
           nonedit: "nosend",
           hidden: true,
         },
-        creatUid: {
+        {
+          col: "creatUid",
           friendly: "新增人員",
           nonsearch: "nosend",
           nonedit: "nosend",
           hidden: true,
         },
-        updateTime: {
+        {
+          col: "updateTime",
           friendly: "修改時間",
           nonsearch: "nosend",
           nonedit: "nosend",
           hidden: true,
         },
-        updateUid: {
+        {
+          col: "updateUid",
           friendly: "修改人員",
           nonsearch: "nosend",
           nonedit: "nosend",
           hidden: true,
         },
-      }
+      ]
     },
   }
 }();
