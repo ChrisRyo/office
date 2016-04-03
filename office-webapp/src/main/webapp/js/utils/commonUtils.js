@@ -1,7 +1,7 @@
 /**
  * chrisryo
  */
-var commonUtils = function() {
+var CommonUtils = function() {
   return {
     /*
      * 自動將json欄位寫入grid中 (欄位必須相同)
@@ -42,3 +42,18 @@ var commonUtils = function() {
     },
   }
 }();
+
+/**
+ * AJAX 遮罩
+ * 必要参数 (blockUI = “id")
+ */
+$(document).bind("ajaxSend", function(event, xhr, settings){
+        if (settings.blockUI) {
+          BlockuiUtils.blockUI({
+            target: settings.blockUI,
+            boxed: true,
+          });
+        }
+}).bind("ajaxComplete", function(event, xhr, settings){
+        BlockuiUtils.unblockUI(settings.blockUI);
+});

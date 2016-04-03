@@ -4,6 +4,8 @@
 <jsp:include page="../common/header.jsp" />
 <jsp:include page="../common/header_grid.jsp" />
 <!-- 自訂 css (位置要固定)-->
+<link rel="stylesheet"
+	href="plugins/bootstrap-treeview/css/bootstrap-treeview.css">
 
 <jsp:include page="../common/topmenu.jsp" />
 
@@ -19,6 +21,8 @@
 			</ol>
 		</section>
 		<section class="content">
+			<div id="treeview-checkable" class=""></div>
+		
 			<!-- serach-->
 			<div id="search_gridAccountsIteam">
 				<jsp:include page="../common/dust_search.jsp" />
@@ -41,6 +45,7 @@
 <jsp:include page="../common/footer_grid.jsp" />
 
 <!-- 自訂 js (位置要固定)-->
+<script type="text/javascript" src="plugins/bootstrap-treeview/js/bootstrap-treeview.js"></script>
 
 <script type="text/javascript" src="js/accountsIteam/accountsIteam.js"></script>
 <script type="text/javascript" src="js/accountsIteam/accountsIteam_grid.js"></script>

@@ -1,7 +1,7 @@
 /**
  * chrisryo
  */
-var comValidation = function() {
+var ComValidation = function() {
   return {
 
     /*

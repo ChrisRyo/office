@@ -8,8 +8,9 @@
 <script src="plugins/adminLTE/bootstrap/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="plugins/adminLTE/dist/js/app.min.js"></script>
-<!-- waitMe -->
-<script src="plugins/jquery-waitMe/js/waitMe.js"></script>
+<!-- blockUI -->
+<script src="plugins/jquery-blockui/js/jquery.blockUI.js"></script>
 
 <!-- self -->
+<script src="js/utils/blockuiUtils.js"></script>
 <script src="js/utils/commonUtils.js"></script>

@@ -1,5 +1,7 @@
 package tw.com.ktv.view.controller;
 
+import java.util.List;
+
 import javax.ws.rs.BeanParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -8,6 +10,7 @@ import org.glassfish.jersey.server.mvc.Viewable;
 
 import tw.com.ktv.exception.code.ValidCode;
 import tw.com.ktv.model.dto.Page;
+import tw.com.ktv.model.dto.Tree;
 import tw.com.ktv.model.vo.AccountsIteam;
 import tw.com.ktv.service.AccountsIteamService;
 import tw.com.ktv.service.Impl.AccountsIteamServiceImpl;
@@ -40,5 +43,15 @@ public class AccountsIteamController extends BaseController {
             bean.getPageSize(), true);
 
     return new ReturnMessage(ValidCode.SUCCESS.getCode(), page.getDataList(), page.getTotale());
+  }
+
+  @GET
+  @Path("/getTree")
+  // @Produces(MediaType.TEXT_PLAIN)
+  public ReturnMessage getAccountsIteamTree(@BeanParam MemberBean bean) throws Exception {
+
+    List<Tree> tree = accountsIteamService.getAccountsIteamTree(new AccountsIteam(), true);
+
+    return new ReturnMessage(ValidCode.SUCCESS.getCode(), tree);
   }
 }
