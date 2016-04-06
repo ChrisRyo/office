@@ -12,7 +12,7 @@ import tw.com.ktv.dao.impl.PageMenuInfoDaoImpl;
 import tw.com.ktv.enums.JpqlTitle;
 import tw.com.ktv.model.vo.PageMenuInfo;
 import tw.com.ktv.service.PageMenuInfoService;
-import tw.com.ktv.utils.PropertiesSqlUtils;
+import tw.com.ktv.utils.PropertiesJpqlUtils;
 
 /**
  * Session Bean implementation class MemberBean
@@ -34,7 +34,7 @@ public class PageMenuInfoServiceImpl implements PageMenuInfoService {
     EntityManager em = pageMenuInfoDao.getEntityManager();
 
     Query query =
-        em.createQuery(PropertiesSqlUtils.getJpql(JpqlTitle.LOGIN_PAGEPERMISSION.getTitle()))
+        em.createQuery(PropertiesJpqlUtils.getJpql(JpqlTitle.LOGIN_PAGEPERMISSION.getTitle()))
             .setParameter(1, uid);
 
     List<PageMenuInfo> pageMenuInfoList = pageMenuInfoDao.queryByJpql(query);

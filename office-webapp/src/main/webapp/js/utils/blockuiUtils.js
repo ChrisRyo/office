@@ -10,7 +10,7 @@ var BlockuiUtils = function() {
 
         html = "<div class='overlay'><i class='fa fa-refresh fa-spin'></i> Loading</div>";
 
-        if (options.target != '') { // element blocking
+        if (options.target) { // element blocking
             var el = $(options.target);
             // if (el.height() <= ($(window).height())) {
             //     options.cenrerY = true;
