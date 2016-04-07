@@ -11,7 +11,10 @@ public enum ChartTypeEnum {
   Line("line"),
   
   /** 柱狀圖 */
-  COLUMN("column");
+  COLUMN("column"),
+  
+  /** 圓餅圖 */
+  PIE("pie");
 
   private final String value;
 

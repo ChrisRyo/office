@@ -11,8 +11,10 @@ import tw.com.ktv.model.dto.Highcharts;
 import tw.com.ktv.model.dto.Highcharts.Chart;
 import tw.com.ktv.model.dto.Highcharts.Legend;
 import tw.com.ktv.model.dto.Highcharts.Series;
+import tw.com.ktv.model.dto.Highcharts.SeriesData;
 import tw.com.ktv.model.dto.Highcharts.Subtitle;
 import tw.com.ktv.model.dto.Highcharts.Title;
+import tw.com.ktv.model.dto.Highcharts.Tooltip;
 import tw.com.ktv.model.dto.Highcharts.XAxis;
 import tw.com.ktv.view.message.ReturnMessage;
 
@@ -28,15 +30,15 @@ public class ProfitLossAccountController extends BaseController {
   private String[] stroes = {"歌美", "歌神", "歌詠", "歌嘟", "96", "音譜", "歌樂", "光明", "真好唱", "歌牌", "歌路",
       "圓通", "不見不散", "歌堡", "歌舞", "忘憂軒", "巴黎灣"};
 
-  String[] profitLossNames = {"收入", "支出", "結餘"};
+  String[] profitLossNames = {"收入", "支出", "淨利"};
 
   private Integer[][] val1 = {
       {145861, 69668, 192109, 202300, 172925, 38946, 57109, 158655, 54403, 46088, 253533, 66200,
           1695, 242911, 36005, 0, 282751},
       {45231, 9999, 12109, 82300, 42925, 8946, 17109, 58655, 4403, 76088, 53533, 6200, 695, 42911,
           6005, 0, 82751},
-      {10000, 50000, 423435, 235325, 35235, 23523, 235235, 325235, 23523, 12123, 65568, 35235, 235235, 23423,
-          343, 0, 132523}};
+      {10000, 50000, 423435, 235325, 35235, 23523, 235235, 325235, 23523, 12123, 65568, 35235,
+          235235, 23423, 343, 0, 132523}};
 
 
   private String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct",
@@ -102,6 +104,52 @@ public class ProfitLossAccountController extends BaseController {
     charts.setTitle(title);
     charts.setSubtitle(subtitle);
     charts.setXAxis(xAxis);
+    charts.setSeries(seriess);
+
+    return new ReturnMessage(ValidCode.SUCCESS.getCode(), charts);
+  }
+
+  @GET
+  @Path("/queryPie")
+  public ReturnMessage queryPie() throws Exception {
+
+    Highcharts charts = new Highcharts();
+
+    Chart chart = new Chart();
+    chart.setType(ChartTypeEnum.PIE.getValue());
+
+    Title title = new Title();
+    title.setText("各店淨利比例");
+
+    Tooltip tooltip = new Tooltip();
+    tooltip.setPointFormat("{series.name}: <b>{point.percentage:.1f}%</b>");
+
+    Subtitle subtitle = new Subtitle();
+    subtitle.setText("105年 1月");
+
+    Series[] seriess = new Series[1];
+
+//    for (int i = 0; i < profitLossNames.length; i++) {
+      Series series = new Series();
+      series.setName(profitLossNames[2]);
+      
+      SeriesData[] seriesDatas= new SeriesData[stroes.length];
+      for (int x = 0 ; x < stroes.length; x++) {
+        SeriesData seriesData = new SeriesData();
+        seriesData.setName(stroes[x]);
+        seriesData.setY(val1[2][x]);
+        seriesDatas[x] = seriesData;
+      }
+      series.setData(seriesDatas);
+      
+      seriess[0] = series;
+//    }
+
+    // data set
+    charts.setChart(chart);
+    charts.setTitle(title);
+    charts.setTooltip(tooltip);
+    charts.setSubtitle(subtitle);
     charts.setSeries(seriess);
 
     return new ReturnMessage(ValidCode.SUCCESS.getCode(), charts);

@@ -23,7 +23,7 @@ public class Highcharts {
   /** 提示信息 */
   private Tooltip tooltip;
 
-  /** 版權信息 (預設填入)*/
+  /** 版權信息 (預設填入) */
   private Credits credits = new Credits();
 
   /** x軸內容 */
@@ -63,6 +63,7 @@ public class Highcharts {
   @Data
   public static class Tooltip {
     private String valueSuffix;
+    private String pointFormat;
   }
 
   /** 版權信息 */
@@ -70,10 +71,8 @@ public class Highcharts {
   public static class Credits {
     /** 是否允許顯示版權信息 */
     private Boolean enabled = false;
-
     /** 版權所有的鏈接 */
     private String href;
-
     /** 版權信息顯示文字 */
     private String text;
   }
@@ -120,10 +119,25 @@ public class Highcharts {
   /** 數據物件 */
   @Data
   public static class Series {
+    /** 數據列類型，支持 area, areaspline, bar, column, line, pie, scatter or spline */
+    private String type;
+    /** 顯示數據列的名稱。 */
     private String name;
-    private Integer[] data;
+    /**
+     * 顯示在圖表中的數據列，Integer[] or SeriesData[]
+     */
+    private Object[] data;
   }
-
+  
+  /** 數據資料物件 */
+  @Data
+  public static class SeriesData {
+    private String name;
+    private Integer y;
+    private Boolean sliced;
+    private Boolean selected;
+  }
+  
   /**
    * 
    */

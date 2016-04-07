@@ -14,6 +14,20 @@ $(document).ready(function() {
 	    }
 	});
 
+	// getpie
+	$.ajax({
+	    url: _pathTitle + "/profitLossAccount/queryPie",
+	    type: 'GET',
+	    dataType: 'json',
+	    contentType: "application/json; charset=utf-8",
+	    success: function (json) {
+	    	$('#pieChart').highcharts(json.data);
+	    },
+	    error: function (err) {
+	        priv.log('request error: '.f(err));
+	    }
+	});
+
 	// getLine
 	$.ajax({
 	    url: _pathTitle + "/profitLossAccount/queryLine",

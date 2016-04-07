@@ -22,20 +22,26 @@
 		</section>
 		<section class="content">
 			<!-- BAR CHART -->
-	          <div class="box box-success">
-	            <div class="box-header with-border">
-	              <h3 class="box-title">損益比較表</h3>
+            <div class="nav-tabs-custom">
+	            <ul class="nav nav-tabs">
+	              	<li><a href="#tab_1" data-toggle="tab">柱狀分析</a></li>
+	              	<li class="active"><a href="#tab_2" data-toggle="tab">圓餅分析</a></li>
 
-	              <div class="box-tools pull-right">
-	                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-	                </button>
-	              </div>
-	            </div>
-	            <div class="box-body">
-	              <div id="barChart" style="margin: 0 auto"></div>
-	            </div>
-	            <!-- /.box-body -->
-	          </div>
+	              	<li class="pull-right">
+	              	<button type="button" class="btn btn-box-tool" data-widget="collapse">
+	              		<i class="fa fa-minus"></i>
+            		</button>
+            		</li>
+	            <ul>
+	            <div class="tab-content">
+      				<div class="tab-pane active" id="tab_1">
+          				<div id="barChart" style="width: 100%;"></div>
+          			</div>
+          			<div class="tab-pane active" id="tab_2">
+          				<div id="pieChart" style="width: 100%;"></div>
+          			</div>
+          		</div>
+        	</div>
 	          <!-- /.box -->
 
 	        <!-- PAI CHART -->
@@ -50,7 +56,7 @@
 	              </div>
 	            </div>
 	            <div class="box-body">
-	              <div id="lineChart" style="margin: 0 auto"></div>
+	              <div id="lineChart" style="style="width: 100%;"></div>
 	            </div>
 	            <!-- /.box-body -->
 	          </div>
