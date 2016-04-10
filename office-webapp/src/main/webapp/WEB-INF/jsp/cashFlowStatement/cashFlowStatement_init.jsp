@@ -10,11 +10,11 @@
 <jsp:include page="../common/topmenu.jsp" />
 
 <!-- Main content -->
-<div id="profitLossAccountForm">
+<div id="cashFlowStatementForm">
 	<div class="content-wrapper">
 		<!-- Content Header (Page header) -->
 		<section class="content-header">
-			<h1>損益表</h1>
+			<h1>現金流量表</h1>
 			<ol class="breadcrumb">
 				<li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
 				<li class="active">Here</li>

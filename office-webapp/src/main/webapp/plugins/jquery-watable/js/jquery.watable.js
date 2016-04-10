@@ -33,6 +33,9 @@
 
  2016-03-26
  1. add props.noPicker
+
+ 2016-04-09
+ 1. add props.noFoot
  */
 (function ($, undefined) {
 
@@ -61,6 +64,7 @@
             sortEmptyLast: true, //empty values will be shown last
             dataBind: false, //updates table when detecting row data changes
             rownumbers: false,
+            noFoot: false,
             types: { //type specific options
                 string: {},
                 number: {},
@@ -577,7 +581,9 @@
             }
 
             //create the footer
-            if (!_foot) {
+            if (priv.options.noFoot) {
+                _table.find('tfoot').remove();
+            } else if (!_foot) {
                 _table.find('tfoot').remove();
                 _foot = $('<tfoot></tfoot>').insertAfter(_body);
 

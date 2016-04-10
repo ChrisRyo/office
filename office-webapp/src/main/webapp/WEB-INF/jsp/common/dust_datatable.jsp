@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<!-- Modal -->
+<!-- datatable -->
 <script type="text/x-template" id="_dust_datatableform" >
     <div class="box box-default">
         <div class="box-header with-border">

@@ -24,13 +24,13 @@ import tw.com.ktv.model.dto.Highcharts.XAxis;
 import tw.com.ktv.view.message.ReturnMessage;
 
 /**
- * 損益表
+ * 現金流量表
  * 
  * @author chrisryo
  *
  */
-@Path("/profitLossAccount")
-public class ProfitLossAccountController extends BaseController {
+@Path("/cashFlowStatement")
+public class CashFlowStatementController extends BaseController {
 
   private String[] stroes = {"歌美", "歌神", "歌詠", "歌嘟", "96", "音譜", "歌樂", "光明", "真好唱", "歌牌", "歌路",
       "圓通", "不見不散", "歌堡", "歌舞", "忘憂軒", "巴黎灣"};
@@ -73,7 +73,7 @@ public class ProfitLossAccountController extends BaseController {
   @GET
   public Viewable init() throws Exception {
 
-    return new Viewable("/profitLossAccount/profitLossAccount_init", super.getModelAndView());
+    return new Viewable("/cashFlowStatement/cashFlowStatement_init", super.getModelAndView());
   }
 
   @GET
