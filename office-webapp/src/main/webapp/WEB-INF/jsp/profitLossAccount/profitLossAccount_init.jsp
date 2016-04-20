@@ -4,8 +4,8 @@
 <jsp:include page="../common/header.jsp" />
 <jsp:include page="../common/header_grid.jsp" />
 <!-- 自訂 css (位置要固定)-->
-<link rel="stylesheet"
-	href="plugins/bootstrap-treeview/css/bootstrap-treeview.css">
+<!-- GRID -->
+<link rel="stylesheet" href="plugins/jquery-watable/css/watable.css">
 
 <jsp:include page="../common/topmenu.jsp" />
 
@@ -75,7 +75,7 @@
 	              </div>
 	            </div>
 	            <div class="box-body">
-	              <div id="lineChart" style="style="width: 100%;"></div>
+	              <div id="lineChart" style="width: 100%;"></div>
 	            </div>
 	            <!-- /.box-body -->
 	          </div>
@@ -89,11 +89,10 @@
 <jsp:include page="../common/footer_grid.jsp" />
 
 <!-- 自訂 js (位置要固定)-->
+<!-- GRID -->
+<script src="plugins/jquery-watable/js/jquery.watable.js"></script>
 <!-- ChartJS 1.0.1 -->
 <script type="text/javascript" src="plugins/jquery-highcharts/js/highcharts.js"></script>
-<script type="text/javascript" src="plugins/jquery-highcharts/js/highcharts-3d.js"></script>
-<!-- bootstrap-treeview -->
-<script type="text/javascript" src="plugins/bootstrap-treeview/js/bootstrap-treeview.js"></script>
 
 <script type="text/javascript" src="js/utils/chartUtils.js"></script>
 <script type="text/javascript" src="js/profitLossAccount/profitLossAccount.js"></script>
