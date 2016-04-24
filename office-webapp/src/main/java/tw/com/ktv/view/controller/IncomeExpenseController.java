@@ -37,6 +37,7 @@ public class IncomeExpenseController extends BaseController {
     
     Map<String, Object> m = new HashMap<String, Object>();
     m.put("accountDate", "2016-03-01");
+    m.put("accountType", "1");
     m.put("accountStroe", "1");
     m.put("incomeAmt", "9999");
     m.put("expenseAmt", "4444");
@@ -45,6 +46,7 @@ public class IncomeExpenseController extends BaseController {
     
     Map<String, Object> m2 = new HashMap<String, Object>();
     m2.put("accountDate", "2016-03-01");
+    m2.put("accountType", "2");
     m2.put("accountStroe", "2");
     m2.put("incomeAmt", "8888");
     m2.put("expenseAmt", "8899");

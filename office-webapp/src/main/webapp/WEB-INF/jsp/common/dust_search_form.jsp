@@ -22,7 +22,12 @@
                 </div>
         	{/eq}
             {@eq value="date-range"}
+                <div class="input-group">
                 <input type="text" id="{mark}_{col}" name="{mark}_{col}" class="form-control date-range input-sm">
+                <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                </div>
+                </div>
             {/eq}
         	{@eq value="textarea"}
                 <input type="text" id="{mark}_{col}" name="{mark}_{col}" class="form-control input-sm">

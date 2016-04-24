@@ -9,7 +9,7 @@ import tw.com.ktv.enums.select.MenuEnum;
  *
  */
 public enum StoreEnum implements MenuEnum {
-  歌辦(1), 歌樂(2), 歌牌(3), 歌路(4), 歌美(5), 歌神(6);
+  歌辦(1), 歌樂(2), 歌牌(3), 歌路(4), 歌美(5), 歌神(6), 倉庫(7),;
 
   private final int value;
 

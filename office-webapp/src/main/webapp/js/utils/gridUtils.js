@@ -10,6 +10,9 @@
 
       this.initHtml(id, title);
 
+      if (genModel)
+        this.creatDialog(grid);
+
       // format
       var coldefs = grid.coldefs();
       var index = 1;
@@ -61,9 +64,6 @@
         pageChanged: grid.pageChanged,
         pageSizeChanged: grid.pageSizeChanged
       }).data('WATable');  //This step reaches into the html data property to get the actual WATable object. Important if you want a reference to it as we want here.
-
-      if (genModel)
-        this.creatDialog(grid);
 
       return waTable;
     },
@@ -138,7 +138,7 @@
       if (_obj.size() > 0) {
         _obj.each(function(index, ele){
           var path = $(ele).attr("data-menu-path");
-          commonUtils.getMenu(path, $(this));
+          CommonUtils.getMenu(path, $(this));
         });
 
         _obj.select2({

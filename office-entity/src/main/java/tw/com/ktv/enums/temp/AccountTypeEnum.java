@@ -3,17 +3,17 @@ package tw.com.ktv.enums.temp;
 import tw.com.ktv.enums.select.MenuEnum;
 
 /**
- * 來源資料
+ * 帳目分類
  * 
  * @author chrisryo
  *
  */
-public enum SourceEnum implements MenuEnum {
-  八里大支出(1), 台北大支出(4);
+public enum AccountTypeEnum implements MenuEnum {
+  分店(1), 大支出(2);
 
   private final int value;
 
-  private SourceEnum(int value) {
+  private AccountTypeEnum(int value) {
     this.value = value;
   }
 

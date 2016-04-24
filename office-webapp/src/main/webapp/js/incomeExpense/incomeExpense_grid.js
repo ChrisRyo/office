@@ -18,8 +18,17 @@ var InExMainGrid = function() {
           unique: true
         },
         {
+          col: "accountType",
+          friendly: "帳目分類",
+          inputsource: "select2",
+          menu_path: "accountType",
+          format: InExMainGrid.accountTypeFM,
+        },
+        {
           col: "accountStroe",
           friendly: "帳目店家",
+          inputsource: "select2",
+          menu_path: "accountStroe",
         },
         {
           col: "incomeAmt",
@@ -59,6 +68,14 @@ var InExMainGrid = function() {
           hidden: true,
         },
       ]
+    },
+
+    fmAccountType: function(val, row) {
+      return $("#Q_accountType option[value="+val+"]").text();
+    },
+
+    fmAccountStroe: function(val, row) {
+      return $("#Q_accountType option[value="+val+"]").text();
     },
   }
 }();
